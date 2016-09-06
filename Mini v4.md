@@ -245,7 +245,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
-| 1 | 1 | Layer Effect 1 | 0 | **Y** | see [Combined Effects](combined-effects) |
+| 1 | 1 | Layer Effect 1 | 0 | **Y** | see [Combined Effects](#combined-effects) |
 | 2 | 1 | Layer Effect Modifier a | 0 | N | |
 | 3 | 1 | Layer Effect Modifier b | 0 | N | |
 | 4 | 1 | Layer Effect Modifier c | 0 | N | |
@@ -427,7 +427,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 * The Combined Effects for Mbox Studio v4.0's Layer fixtures include all effects listed below.
 * The Output Master fixture is only able to use Effects 1 - 200
 
-|Value | Effect | Description | Mod.1 | Mod.2 | Modi.3 |  Mod.4 |  Mod.5 |
+|Value | Effect | Description | Mod.1 | Mod.2 | Mod.3 |  Mod.4 |  Mod.5 |
 ---|---|---|---|---|---|---|---
 | 0 | NONE | no effect  | | | | | |
 | 1 | Hue | hue adjustment | hue angle | | | | |
