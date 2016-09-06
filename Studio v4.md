@@ -552,6 +552,7 @@ Notes:
 >**Notes:**
 >* The Combined Effects for Mbox Studio v4.0's Layer fixtures include all effects listed below.
 >* The Output Master fixture is only able to use Effects 1 - 200
+> * Due to GitHub formatting scroll right for Mod.5
 
 |Value | Effect | Description | Mod.1 | Mod.2 | Modi.3 |  Mod.4 |  Mod.5 |
 ---|---|---|---|---|---|---|---
