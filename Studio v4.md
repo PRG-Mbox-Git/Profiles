@@ -1,37 +1,56 @@
-h1. Mbox Studio v40 Mapping
+#Mbox Studio v40 Mapping
 
-Created: July 15, 2015
-Edited: April 6, 2016
-Edited: June 8, 2016 (GM Control channel)
-Edited: June 8, 2016 (Object Effects)
-Edited: June 28, 2016 (Correct location for additional Output Masters, tidy up for distribution)
-Edited: August 8, 2016 (Correct effect ordering, typos, add Pixel Mapping Group Control info)
-Edited: August 12, 2016 (Fixed errors in Effects)
-Edited: August 17, 2016 (Corrected Output Geometry Scale default, Removed DrawMode Orthographic +16)
-
-NB: Mbox uses default values of 127 and 32767 for some parameters, rather than 128 and 32768.  Using incorrect default values will have a severe negative impact on operation!
-
-| [[mboxextreme|Mbox Home]] |
-
-{{toc}}
-
-Notes: 
-
+Notes:
+* Mbox uses default values of 127 and 32767 for some parameters, rather than 128 and 32768.  Using incorrect default values will have a severe negative impact on operation!
 * Mbox v4 eliminates the prior idea of single, pan wide, pan dual, and dual independent output setup.  For v4 you add the number of layers desired and then add outputs as desired.  Outputs may be separate or panoramic in some combination with other layers.  Each output can have its own Output Master fixture. Two or more outputs can be linked together as panoramic outputs if desired.
 * Mbox Studio v4 has only one type of Lighting fixture, what was previously called the "Pro Light" fixture in Mbox Designer v3.8 and above.  
 * Mbox Studio v4 has a variable number of effects per layer (1-2).  But the number of effects must be the same for every patched layer.
 * Each layer in Mbox v4 has optional Effects, Layer Volume, and Layer DMX Timecode sub-fixtures.  These fixture types are automatically included as part of the standard  quick patch. Each layer receives its own copy of each sub-fixture. Every layer receives the same quantity of each sub-fixture type.  When using the advanced patch these sub-fixtures are optional.
 * The Output Master fixture includes Base functionality, plus optional Camera, Effect (1), Shutter, and Keystone sub-fixtures.
 * A standard/base configuration includes Lighting (5 Pro Lights), Global Master, eight Layer controls (each with 2 effects, volume, and timecode), and one Output Master (with all sub-fixtures).
+* All 16-bit values are in big-endian format. For example, the value 23 would be presented as 0 in the first channel and 23 in the second channel.
 
-Note: All 16-bit values are in big-endian format. For example, the value 23 would be presented as 0 in the first channel and 23 in the second channel.
+> ## Sections
+> * [**Summary - Standard Configuration (Quick Patch)**](#summary---standard-configuration-quick-patch)
+> * [**Summary - Custom Configuration (Custom Patch)**](#summary---custom-configuration-custom-patch)
+> * [**Fixture Descriptions**](#fixture-descriptions)
+>   * [Pro Light](#pro-light)
+>   * [Global Master](#global-master)
+>   * [Output Master Base](#output-master-base)
+>   * [Output Master Effect](#output-master-effect)
+>   * [Output Master Camera](#output-master-camera)
+>   * [Output Master Geometry](#output-master-geometry)
+>   * [Output Master Keystone](#output-master-keystone)
+>   * [Output Master Shutter](#output-master-shutter)
+>   * [Layer Base](#layer-base)
+>   * [Layer FX](#layer-fx)
+>   * [Layer Volume](#layer-volume)
+>   * [Layer DMX Timecode](#layer-dmx-timecode)
+>   * [Pixel Mapping Group Control](#pixel-mapping-group-control)
+> * [**Channel Definitions**](#channel-definitions)
+>   * [Global Master Control Channel](#global-master-control-channel)
+>   * [Shutter Shapes](#shutter-shapes)
+>   * [Keystone Blend Curves](#keystone-blend-curves)
+>   * [Video and Utility Inputs](#video-and-utility-inputs)
+>   * [Play Modes](#play-modes)
+>   * [Play Speed](#play-speed)
+>   * [Sync Stream](#sync-stream)
+>   * [Frame Blending Control](#frame-blending-control)
+>   * [Combined Effects](#combined-effects)
+>   * [Transitions](#transitions)
+>   * [Object Transitions](#object-transitions)
+>   * [Layer Mix Modes](#layer-mix-modes)
+>   * [Blend Modes](#blend-modes)
+>   * [Draw Modes](#draw-modes)
+>   * [Pixel Mapping Group Control Modes](#pixel-mapping-group-control-modes)
 
-h2. Summary - Standard Configuration (Quick Patch)
+##Summary - Standard Configuration (Quick Patch)
 
-*Masters and Lights*
-Universe Offset +0
+###Masters and Lights
+*Universe Offset +0*
 
-| *Start*  | *Size*  | *Type*  |
+| Start  | Size  | Type  |
+|---|---|---|
 | 1 | 5 | Global Master |
 | 6 | 9  | Pro Light 1 |
 | 15 | 9 | Pro Light 2 |
@@ -43,15 +62,17 @@ Universe Offset +0
 | 63 | 12 | Output 1 Geometry |
 | 75 | 26 | Output 1 Keystone |
 | 101 | 13 | Output 1 Shutter |
-| | *114*  | *TOTAL DMX CHANNELS* |
+| | **114**  | **TOTAL DMX CHANNELS** |
 
-Note: Additional Output Masters may be added and use 63 channels each if all sub-fixtures are included.
-Note: A maximum of seven (7) Output Masters will fit on the first universe.  If more than seven are required, additional universes must be patched.  Output Master 8 would be on the second universe, and would move the Layers up to the next consecutive universe (i.e. the third universe). 
+>**Notes:**
+>* Additional Output Masters may be added and use 63 channels each if all sub-fixtures are included.
+>* A maximum of seven (7) Output Masters will fit on the first universe.  If more than seven are required, additional universes must be patched.  Output Master 8 would be on the second universe, and would move the Layers up to the next consecutive universe (i.e. the third universe).
 
-*Layers 1-8*
-Universe Offset +1
+###Layers 1-8
+*Universe Offset +1*
 
-| *Start*  | *Size*  | *Type*  |
+| Start  | Size  | Type  |
+---|---|---
 | 1 | 58 | Layer 1 |
 | 59 | 58 | Layer 2 |
 | 117 | 58 | Layer 3 |
@@ -60,95 +81,106 @@ Universe Offset +1
 | 291 | 58 | Layer 6 |
 | 349 | 58 | Layer 7 |
 | 407 | 58 | Layer 8 |
-| | *464*  | *TOTAL DMX CHANNELS* |
+| | **464**  | **TOTAL DMX CHANNELS** |
 
-*Layers 9-12*
-Universe Offset +2
+###Layers 9-12
+*Universe Offset +2*
 
 *See Previous Universe*
-| | *232*  | *TOTAL DMX CHANNELS* |
 
-h2. Summary - Custom Configuration (Custom Patch)
+| Start  | Size  | Type  |
+---|---|---
+| | **232**  | **TOTAL DMX CHANNELS** |
 
-*Masters and Lights*
-Universe Offset +0
+##Summary - Custom Configuration (Custom Patch)
 
-| *Start*  | *Size*  | *Type*  | *Required/Optional* |
-| 1 | 5 | Global Master | *Required* |
+###Masters and Lights
+*Universe Offset +0*
+
+| Start  | Size  | Type  | Required/Optional |
+---|---|---|---
+| 1 | 5 | Global Master | **Required** |
 | 6 | 9  | Pro Light 1 | Optional |
 | 15 | 9 | Pro Light 2 | Optional |
 | 24 | 9  | Pro Light 3 | Optional |
 | 33 | 9  | Pro Light 4 | Optional |
 | 42 | 9  | Pro Light 5 | Optional |
-| 51 | 6 | Output Master 1 | *Required* |
+| 51 | 6 | Output Master 1 | **Required** |
 | 57 | 6 | Output 1 FX 1 | Optional |
 | 63 | 12 | Output 1 Geometry |
 | 75 | 26 | Output 1 Keystone | Optional |
 | 101 | 13 | Output 1 Shutter | Optional |
-| | *114*  | *TOTAL DMX CHANNELS* |
+| | **114**  | **TOTAL DMX CHANNELS** |
 
-Note: Additional Output Masters may be added.  Each Output Master may have different options enabled - effect, keystone, shutter.
-Note: A maximum of seven (7) Output Masters will fit on the first universe.  If more than seven are required, additional universes must be patched.  Output Master 8 would be on the second universe, and would move the Layers up to the next consecutive universe (i.e. the third universe). 
+> **Notes:**
+> * Additional Output Masters may be added.  Each Output Master may have different options  enabled - effect, keystone, shutter.
+> * A maximum of seven (7) Output Masters will fit on the first universe.  If more than seven are required, additional universes must be patched.  Output Master 8 would be on the second universe, and would move the Layers up to the next consecutive universe (i.e. the third universe).
 
-*Layers 1-8*
-Universe Offset +1
+###Layers 1-8
+*Universe Offset +1*
 
-Types listed as Required must be patched for the layer to work.  Optional types can be enabled/disabled for every layer, but not on a per-layer basis.
+*Types listed as Required must be patched for the layer to work.  Optional types can be enabled/disabled for every layer, but not on a per-layer basis.*
 
-| *Start*  | *Size*  | *Type*  | *Required/Optional* |
-| *1* | 41 | Layer 1 Base | *Required* |
+| Start  | Size  | Type  | Required/Optional |
+---|---|---|---
+| **1** | 41 | Layer 1 Base | **Required** |
 | +42 | 6 | Layer 1 FX 1 | Optional |
 | +48 | 6 | Layer 1 FX 2 | Optional |
 | +54 | 1 | Layer 1 Volume | Optional |
 | +55 | 4 | Layer 1 Timecode | Optional |
-| *59* | 41 | Layer 2 Base | *Required* |
+| **59** | 41 | Layer 2 Base | **Required** |
 | +42 | 6 | Layer 2 FX 1 | Optional |
 | +48 | 6 | Layer 2 FX 2 | Optional |
 | +54 | 1 | Layer 2 Volume | Optional |
 | +55 | 4 | Layer 2 Timecode | Optional |
-| *117* | 41 | Layer 3 Base | *Required* |
+| **117** | 41 | Layer 3 Base | **Required** |
 | +42 | 6 | Layer 3 FX 1 | Optional |
 | +48 | 6 | Layer 3 FX 2 | Optional |
 | +54 | 1 | Layer 3 Volume | Optional |
 | +55 | 4 | Layer 3 Timecode | Optional |
-| *175* | 41 | Layer 4 Base | *Required* |
+| **175** | 41 | Layer 4 Base | **Required** |
 | +42 | 6 | Layer 4 FX 1 | Optional |
 | +48 | 6 | Layer 4 FX 2 | Optional |
 | +54 | 1 | Layer 4 Volume | Optional |
 | +55 | 4 | Layer 4 Timecode | Optional |
-| *233* | 41 | Layer 5 Base | *Required* |
+| **233** | 41 | Layer 5 Base | **Required** |
 | +42 | 6 | Layer 5 FX 1 | Optional |
 | +48 | 6 | Layer 5 FX 2 | Optional |
 | +54 | 1 | Layer 5 Volume | Optional |
 | +55 | 4 | Layer 5 Timecode | Optional |
-| *291* | 41 | Layer 6 Base | *Required* |
+| **291** | 41 | Layer 6 Base | **Required** |
 | +42 | 6 | Layer 6 FX 1 | Optional |
 | +48 | 6 | Layer 6 FX 2 | Optional |
 | +54 | 1 | Layer 6 Volume | Optional |
 | +55 | 4 | Layer 6 Timecode | Optional |
-| *349* | 41 | Layer 7 Base | *Required* |
+| **349** | 41 | Layer 7 Base | **Required** |
 | +42 | 6 | Layer 7 FX 1 | Optional |
 | +48 | 6 | Layer 7 FX 2 | Optional |
 | +54 | 1 | Layer 7 Volume | Optional |
 | +55 | 4 | Layer 7 Timecode | Optional |
-| *407* | 41 | Layer 8 Base | *Required* |
+| **407** | 41 | Layer 8 Base | **Required** |
 | +42 | 6 | Layer 8 FX 1 | Optional |
 | +48 | 6 | Layer 8 FX 2 | Optional |
 | +54 | 1 | Layer 8 Volume | Optional |
 | +55 | 4 | Layer 8 Timecode | Optional |
-| | *464*  | *TOTAL DMX CHANNELS* |
+| | *464*  | **TOTAL DMX CHANNELS** |
 
-*Layers 9-12*
-Universe Offset +2
+###Layers 9-12
+*Universe Offset +2*
 
 *See Previous Universe*
-| | *232*  | *TOTAL DMX CHANNELS* |
 
-h1. Fixture Descriptions
+| Start  | Size  | Type  |
+---|---|---
+| | **232**  | **TOTAL DMX CHANNELS** |
 
-h2. Pro Light (Optional, up to 5 allowed)
+##Fixture Descriptions
 
-| *Channel* | *Size* | *Function* | *Default* | *Snap* | *Notes* |
+###Pro Light
+*Optional, up to 5 allowed*
+
+| Channel | Size | Function | Default | Snap | Notes |
+---|---|---|---|---|---
 | 1  | 1 | Intensity | 0 | N | |
 | 2 | 1 | Red  | 255 | N | |
 | 3 | 1 | Green  | 255 | N | |
@@ -156,57 +188,65 @@ h2. Pro Light (Optional, up to 5 allowed)
 | 5 | 1 | Ambience  | 0 | N | |
 | 6 | 2 | Horizontal Bearing  | 32767 | N | |
 | 8 | 2 | Vertical Bearing  | 32767 | N | |
-| | *9*  | *TOTAL DMX CHANNELS* | | | |
+| | **9**  | **TOTAL DMX CHANNELS** | | | |
 
-h2. Global Master (Required, 1 allowed)
+###Global Master
+*Required, 1 allowed*
 
-| *Channel* | *Size* | *Function* | *Default* | *Snap* | *Notes* |
+| Channel | Size | Function | Default | Snap | Notes |
+---|---|---|---|---|---
 | 1 | 1 | Global Intensity | 255 | N | Overall dimming (in IO Module if applicable) |
-| 2 | 1 | Control | 0 | *Y* |  [[Mbox Studio v4.0 Mapping#Global-Master-Control-Channel| Global Master Control Channel]]  |
-| 3 | 1 | Control Selector | 0 | *Y* | Modifier for Control macros |
+| 2 | 1 | Control | 0 | **Y** |  see [Global Master Control Channel](#global-master-control-channel)  |
+| 3 | 1 | Control Selector | 0 | **Y** | Modifier for Control macros |
 | 4 | 1 | Pixel Mapping Output Level | 255 | N | Master level for pixel-mapped outputs  |
 | 5 | 1 | Global Volume | 255 | N | Master level for all audio |
-| | *5*  | *TOTAL DMX CHANNELS* | | | |
+| | **5**  | **TOTAL DMX CHANNELS** | | | |
 
-h2. Output Master Base (Required, quantity variable)
+###Output Master Base
+*Required, quantity variable*
 
-| *Channel* | *Size* | *Function* | *Default* | *Snap* | *Notes* |
+| Channel | Size | Function | Default | Snap | Notes |
+---|---|---|---|---|---
 | 1 | 1 | Master Intensity | 255 | N | Software dimming of output |
 | 2 | 1 | Red | 127 | N | Subtractive 0-126, Additive 128 - 255 |
 | 3 | 1 | Green | 127 | N | Subtractive 0-126, Additive 128 - 255 |
 | 4 | 1 | Blue | 127 | N | Subtractive 0-126, Additive 128 - 255 |
 | 5 | 1 | Brightness | 127 | N | |
 | 6 | 1 | Contrast | 127 | N | |
-| | *6*  | *TOTAL DMX CHANNELS* | | | |
+| | **6**  | **TOTAL DMX CHANNELS** | | | |
 
-h2. Output Master Effect (Optional, 1 per Output Master)
+###Output Master Effect
+*Optional, 1 per Output Master*
 
-| *Channel* | *Size* | *Function* | *Default* | *Snap* | *Notes* |
-| 1 | 1 | Master Effect 1 | 0 | *Y* | [[Mbox Studio v4.0 Mapping#Combined-Effects| Effects 1-200]] |
+| Channel | Size | Function | Default | Snap | Notes |
+---|---|---|---|---|---
+| 1 | 1 | Master Effect 1 | 0 | **Y** | see [Combined Effects](#combined-effects) |
 | 2 | 1 | Master Effect Modifier a | 0 | N | |
 | 3 | 1 | Master Effect Modifier b | 0 | N | |
 | 4 | 1 | Master Effect Modifier d | 0 | N | |
 | 5 | 1 | Master Effect Modifier d | 0 | N | |
 | 6 | 1 | Master Effect Modifier e | 0 | N | |
-| | *6*  | *TOTAL DMX CHANNELS* | | | |
+| | **6**  | **TOTAL DMX CHANNELS** | | | |
 
-h2. Output Master Geometry
+###Output Master Geometry
+*Optional, 1 per Output Master*
 
-(Optional, 1 per Output Master)
-
-| *Channel* | *Size* | *Function* | *Default* | *Snap* | *Notes* |
+| Channel | Size | Function | Default | Snap | Notes |
+---|---|---|---|---|---
 | 1 | 2 | Output Position X  | 32767  | N | |
 | 3 | 2 | Output Position Y  | 32767  | N | |
 | 5 | 2 | Output Scale  | 32767  | N | |
 | 7 | 2 | Output Rotation  | 32767  | N | Increasing value rotates CW |
 | 9 | 2 | Mix Offset X  | 32767  | N | |
 | 11 | 2 | Mix Offset Y  | 32767  | N | |
-| | *12*  | *TOTAL DMX CHANNELS* | | | |
+| | **12**  | **TOTAL DMX CHANNELS** | | | |
 
-h2. Output Master Keystone (Optional, 1 per Output Master)
+###Output Master Keystone
+*Optional, 1 per Output Master*
 
-| *Channel* | *Size* | *Function* | *Default* | *Snap* | *Notes* |
-| 1 | 1 | Curve | 0 | *Y* | [[Mbox Studio v4.0 Mapping#Keystone-Blend-Curves|Keystone Blend Curves]] |
+| Channel | Size | Function | Default | Snap | Notes |
+---|---|---|---|---|---
+| 1 | 1 | Curve | 0 | **Y** | see [Keystone Blend Curves](#keystone-blend-curves) |
 | 2 | 1 | Gamma | 127 | N | Adjusts the gamma of all four edge blends |
 | 3 | 1 | Edge Top  | 0 | N | Edge blending-Top  |
 | 4 | 1 | Edge Right  | 0 | N | Edge blending-Right  |
@@ -222,12 +262,14 @@ h2. Output Master Keystone (Optional, 1 per Output Master)
 | 21 | 2 | Corner 4 - Y  | 32767 | N | Bottom Left Y - increasing value moves corner up, decreasing moves down |
 | 23 | 2 | Linearity X | 32767 | N | Increasing value smooshes the image to the right, decreasing smooshes to the left |
 | 25 | 2 | Linearity Y | 32767 | N | Increasing value smooshes the image to the top, decreasing smooshes to the bottom |
-| | *26*  | *TOTAL DMX CHANNELS* | | | |
+| | **26**  | **TOTAL DMX CHANNELS** | | | |
 
-h2. Output Master Shutter (Optional, 1 per Output Master)
+###Output Master Shutter
+*Optional, 1 per Output Master*
 
-| *Channel* | *Size* | *Function* | *Default* | *Snap* | *Notes* |
-| 1  | 1 | Shape  | 0 | *Y* | [[Mbox Studio v4.0 Mapping#Shutter-Shapes| Shutter Shapes]] |
+| Channel | Size | Function | Default | Snap | Notes |
+---|---|---|---|---|---
+| 1  | 1 | Shape  | 0 | **Y** | see [Shutter Shapes](#shutter-shapes) |
 | 2 | 1 | Red | 0 | N | |
 | 3 | 1 | Green | 0 | N | |
 | 4 | 1 | Blue | 0 | N | |
@@ -240,29 +282,31 @@ h2. Output Master Shutter (Optional, 1 per Output Master)
 | 11 | 1 | Shutter 3b  | 0 | N | |
 | 12 | 1 | Shutter 4a  | 0 | N | |
 | 13 | 1 | Shutter 4b  | 0 | N | |
-| | *13*  | *TOTAL DMX CHANNELS* | | | |
+| | **13**  | **TOTAL DMX CHANNELS** | | | |
 
-h2. Layer Base
+###Layer Base
+*Required, Up to 12 per server*
 
-| *Channel* | *Size* | *Function* | *Default* | *Snap* | *Notes* |
+| Channel | Size | Function | Default | Snap | Notes |
+---|---|---|---|---|---
 | 1 | 1 | Opacity  | 0 | N | Controls layer's transparency |
 | 2 | 1 | Red | 127 | N | Subtractive 0-126, Additive 128 - 255 |
 | 3 | 1 | Green | 127 | N | Subtractive 0-126, Additive 128 - 255 |
 | 4 | 1 | Blue | 127 | N | Subtractive 0-126, Additive 128 - 255 |
 | 5 | 1 | Brightness | 127 | N | |
 | 6 | 1 | Contrast | 127 | N | |
-| 7 | 1 | Texture Folder  | 0 | *Y* | Folder=255: [[Mbox Studio v4.0 Mapping#Video-and-Utility-Inputs|Video and Utility Inputs]] |
-| 8 | 1 | Texture File  | 0 | *Y* | |
-| 9 | 1 | Play Mode  | 0 | *Y* | [[Mbox Studio v4.0 Mapping#Play-Modes|Play Modes]] |
-| 10 | 1 | Play Speed  | 127  | N | [[Mbox Studio v4.0 Mapping#Play-Speed|Play Speed]] |
+| 7 | 1 | Texture Folder  | 0 | **Y** | Folder 255; see [Video and Utility Inputs](video-and-utility-inputs) |
+| 8 | 1 | Texture File  | 0 | **Y** | |
+| 9 | 1 | Play Mode  | 0 | **Y** | see [Play Modes](#play-modes) |
+| 10 | 1 | Play Speed  | 127  | N | see [Play Speed](#play-speed) |
 | 11 | 2 | In Frame  | 0 | N | |
 | 13 | 2 | Out Frame  | 65535  | N | |
-| 15 | 1 | Sync Stream | 0 | *Y* | [[Mbox Studio v4.0 Mapping#Sync-Stream|Sync Stream]] |
+| 15 | 1 | Sync Stream | 0 | **Y** | see [Sync Stream](#sync-stream) |
 | 16 | 1 | Sync Offset | 127  | *N* | One point in value equals one frame, positive or negative |
-| 17 | 1 | Frame Blending | 255 | N | [[Mbox Studio v4.0 Mapping#Frame-Blending-Control|Frame Blending Control]] |
-| 18 | 1 | Texture XFade Type  | 0 | *Y* | [[Mbox Studio v4.0 Mapping#Transitions|Transitions]] |
-| 19 | 1 | Texture XFade Timing  | 0 | *Y* | |
-| 20 | 1 | Object File  | 0 | *Y* |  |
+| 17 | 1 | Frame Blending | 255 | N | see [Frame Blending Control](#frame-blending-control) |
+| 18 | 1 | Texture XFade Type  | 0 | **Y** | see [Transitions](#transitions) |
+| 19 | 1 | Texture XFade Timing  | 0 | **Y** | |
+| 20 | 1 | Object File  | 0 | **Y** |  |
 | 21 | 2 | X Position  | 32767  | N | |
 | 23 | 2 | Y Position  | 32767  | N | |
 | 25 | 2 | Scale  | 32767  | N | Overall scale X, Y, & Z |
@@ -271,58 +315,63 @@ h2. Layer Base
 | 31  | 2 | Z Rotation  | 32767  | N | |
 | 33 | 2 | X Rotation  | 32767  | N | |
 | 35 | 2 | Y Rotation  | 32767  | N | |
-| 37 | 1 | Mix Select | 0 | *Y* | Selects which Mix the layer is assigned to |
-| 38 | 1 | Mix Center/Scale | 0 | *Y* | [[Mbox Studio v4.0 Mapping#Layer-Mix-Modes| Centering and Fit Modes for content assigned to a Mix]] |
-| 39 | 1 | Layer Blend Mode/Draw Mode  | 0 | *Y* | [[Mbox Studio v4.0 Mapping#Blend-Modes| Blend Modes]] |
-| 40 | 1 | Layer Draw Mode  | 0 | *Y* | [[Mbox Studio v4.0 Mapping#Draw-Modes| Draw Modes]] |
-| 41 | 1 | Image Remap | 0 | *Y* | Selects which Image Remapping configuration the layer uses |
-| | *41*  | *TOTAL DMX CHANNELS* | | | |
+| 37 | 1 | Mix Select | 0 | **Y** | Selects which Mix the layer is assigned to |
+| 38 | 1 | Mix Center/Scale | 0 | **Y** | see [Layer Mix Modes](#layer-mix-modes) |
+| 39 | 1 | Layer Blend Mode/Draw Mode  | 0 | **Y** | see [Blend Modes](#blend-modes) |
+| 40 | 1 | Layer Draw Mode  | 0 | **Y** | see [Draw Modes](#draw-modes) |
+| 41 | 1 | Image Remap | 0 | **Y** | Selects which Image Remapping configuration the layer uses |
+| | **41**  | **TOTAL DMX CHANNELS** | | | |
 
-h2. Layer FX (Optional, up to 2 per Layer)
+###Layer FX
+*Optional, up to 2 per Layer*
 
-| *Channel* | *Size* | *Function* | *Default* | *Snap* | *Notes* |
-| 1 | 1 | Layer Effect 1 | 0 | *Y* | [[Mbox Studio v4.0 Mapping#Combined-Effects| Effects 1-200]] |
-| 2 | 1 | Layer Effect Modifier 1a | 0 | N | |
-| 3 | 1 | Layer Effect Modifier 1b | 0 | N | |
-| 4 | 1 | Layer Effect Modifier 1c | 0 | N | |
-| 5 | 1 | Layer Effect Modifier 1d | 0 | N | |
-| 6 | 1 | Layer Effect Modifier 1e | 0 | N | |
-| | *6*  | *TOTAL DMX CHANNELS* | | | |
+| Channel | Size | Function | Default | Snap | Notes |
+---|---|---|---|---|---
+| 1 | 1 | Layer Effect 1 | 0 | **Y** | see [Combined Effects](combined-effects) |
+| 2 | 1 | Layer Effect Modifier 1 | 0 | N | |
+| 3 | 1 | Layer Effect Modifier 2 | 0 | N | |
+| 4 | 1 | Layer Effect Modifier 3 | 0 | N | |
+| 5 | 1 | Layer Effect Modifier 4 | 0 | N | |
+| 6 | 1 | Layer Effect Modifier 5 | 0 | N | |
+| | **6**  | **TOTAL DMX CHANNELS** | | | |
 
-h2. Layer Volume (Optional, 1 per Layer)
+###Layer Volume (Optional, 1 per Layer)
 
-| *Channel* | *Size* | *Function* | *Default* | *Snap* | *Notes* |
+| Channel | Size | Function | Default | Snap | Notes |
+---|---|---|---|---|---
 | 1 | 1 | Layer Volume Control | 255 | N | |
-| | *1*  | *TOTAL DMX CHANNELS* | | | |
+| | **1**  | **TOTAL DMX CHANNELS** | | | |
 
-h2. Layer DMX Timecode (Optional, 1 per Layer)
+###Layer DMX Timecode (Optional, 1 per Layer)
 
-| *Channel* | *Size* | *Function* | *Default* | *Snap* | *Notes* |
+| Channel | Size | Function | Default | Snap | Notes |
+---|---|---|---|---|---
 | 1  | 1 | Hours | 0 | N | 0-23 > Setting value beyond its normal range will invalidate all TC DMX controls for the layer |
 | 2 | 1 | Minutes  | 0 | N | 0-59 > Setting value beyond its normal range will invalidate all TC DMX controls for the layer |
 | 3 | 1 | Seconds  | 0 | N | 0-59 > Setting value beyond its normal range will invalidate all TC DMX controls for the layer |
 | 4 | 1 | Frames  | 0 | N | 0-29 > Setting value beyond its normal range will invalidate all TC DMX controls for the layer |
-| | *4*  | *TOTAL DMX CHANNELS* | | | |
+| | **4**  | **TOTAL DMX CHANNELS** | | | |
 
-h2. Pixel Mapping Group Control 
+###Pixel Mapping Group Control
+*Optional, for controlling pixel mapping groups - add one per Pixel Mapping Group, 2000 max*
 
-(Optional, for controlling pixel mapping groups - add one per Pixel Mapping Group, 2000 max)
-
-| *Channel* | *Size* | *Function* | *Default* | *Snap* | *Notes* |
-| 1 | 1 | Control Mode | 0 | *Y* | [[Mbox Studio v4.0 Mapping#Pixel-Mapping-Group-Control-Modes|Pixel Mapping Group Control Modes]] |
+| Channel | Size | Function | Default | Snap | Notes |
+---|---|---|---|---|---
+| 1 | 1 | Control Mode | 0 | **Y** | see [Pixel Mapping Group Control Modes](#pixel-mapping-group-control-modes) |
 | 2 | 1 | Intensity/Crossfade | 255 | N | Used as Intensity or Crossfade depending on the selected control mode |
 | 3 | 1 | Red/Cyan | 255/0 | N | Used as Red with RGB control modes, and as Cyan with CMY control modes |
 | 4 | 1 | Green/Magenta | 255/0 | N | Used as Green with RGB control modes, and as Magenta with CMY control modes |
 | 5 | 1 | Blue/Yellow | 255/0 | N | Used as Blue with RGB control modes, and as Yellow with CMY control modes |
-| | *5*  | *TOTAL DMX CHANNELS* | | | |
+| | **5**  | **TOTAL DMX CHANNELS** | | | |
 
-h1. Channel Definitions
+##Channel Definitions
 
-h2. Global Master Control Channel
- 
-| *Value* | *Command* | *Notes* | *Macro Trigger Action* | *Master Control Selector* |
+###Global Master Control Channel
+
+|Value|Command| Notes |Macro Trigger Action|Master Control Selector|
+---|---|---|---|---|---
 | 10-19  | Output Stats HUD | Shows output size, refresh, rendering stats | n/a | n/a |
-| 20-29  | Performance HUD | Shows overall perfromance, playback, rendering, etc. | n/a | n/a |
+| 20-29  | Performance HUD | Shows overall performance, playback, rendering, etc. | n/a | n/a |
 | 40-44  | Lights/Master/Shutter/Keystone HUD - Output 1 Control Input Universe A| | n/a | n/a |
 | 45-49  | Lights/Master/Shutter/Keystone HUD - Output 2 Control Input Universe B| | n/a | n/a |
 | 50-54  | Texture HUD - Layers 1-6, Output 1 Control Input Universe A| | n/a | n/a |
@@ -364,18 +413,20 @@ h2. Global Master Control Channel
 | 253  | Restart Mbox Application | | Hold 3-sec then 0 | n/a |
 | 254  | Restart Daemon Application | | Hold 3-sec then 0 | n/a |
 
-h2. Shutter Shapes
- 
-| *Value* | *Shape* | *Notes* |
+###Shutter Shapes
+
+|Value| Shape | Notes |
+---|---|---
 | 0-9  | Disabled | |
 | 10-19  | Moving Light Mode | Separate controls for each end of shutter. If both controls are zero shutter disappears |
 | 20-29  | Leko Mode | Distance and angle controls. If distance is zero, shutter disappears. |
 | 30-39  | Iris Mode | A round Iris, scale is magnified to enclose the screen. No other controls. |
 | 40-49  | "Blob" Mode | A Bezier curve is drawn touching the midpoints of the rectangle formed by Leko Mode. |
 
-h2. Keystone Blend Curves
+###Keystone Blend Curves
 
-| *Value* | *Mode* | *Blend Curve* | *Grid Overlay Y/N* | *Controls* |
+|Value| Mode | Blend Curve | Grid Overlay Y/N | Controls |
+---|---|---|---|---
 | 0 | Disable DMX Keystone | n/a | N | Keystone/Warp is set from the Output setup tab in the Mbox or Remote application* |
 | 1 | Use DMX | Linear | N | X/Y Corner controls |
 | 2 | Use DMX | Raised Cosine | N | X/Y Corner controls |
@@ -385,15 +436,16 @@ h2. Keystone Blend Curves
 | 12 | Use DMX | Raised Cosine | Y | X/Y Corner controls |
 | 13 | Use DMX | Sine | Y | X/Y Corner controls |
 | 14 | Use DMX | No Blending | Y | X/Y Corner controls |
+>**Notes:**
+>* A Keystone Curve value of 0 enables the advanced  toolset that is accessed through the UI in the Mbox or Mbox Remote Application
+>* When the value is set to 0 settings  from the advanced toolset will negate the standard corner, edge-blend, and linearity controls, but not the Output Geometry controls
 
-*A Keystone Curve value of 0 enables the advanced  toolset that is accessed through the UI in the Mbox or Mbox Remote Application
-*When the value is set to 0 settings  from the advanced toolset will negate the standard corner, edge-blend, and linearity controls, but not the Output Geometry controls
+###Video and Utility Inputs
 
-h2. Video and Utility Inputs
+*Texture Folder 255 is reserved for special uses such as selecting video/syphon inputs or copying layers*
 
-Texture Folder 255 is reserved for special uses such as selecting video/syphon inputs or copying layers:
-
-| *Texture Value* | *Input* |
+| Texture Value | Input |
+---|---
 | 0  | Patch Info Display |
 | 1 | Copy Layer 1 FX+ |
 | 2 | Copy Layer 2 FX+ |
@@ -430,9 +482,10 @@ Texture Folder 255 is reserved for special uses such as selecting video/syphon i
 | 254 | CG Color Bars |
 | 255 | Null Image |
 
-h2. Play Modes
- 
-| *Value* | *Play Mode* |
+###Play Modes
+
+|Value| Play Mode |
+---|---
 | 0  | Forward Loop |
 | 1  | Forward Loop, Pause when Layer Opacity = 0 |
 | 2  | Forward Loop, Pause and Reset to In-Point when Layer Opacity = 0 |
@@ -472,33 +525,36 @@ h2. Play Modes
 | 244  | Play out Mode - last 30 seconds |
 | 255  | Restart Movie from In Point |
 
-h2. Play Speed
- 
-| *Value* | *Play speed* |
+###Play Speed
+
+|Value| Play speed |
+---|---
 | 0  | Paused |
 | 1-126  | Increasing speeds from paused to normal |
 | 127  | Normal Speed - movie fps |
 | 128  | Compensated speed - match output refresh rate (with +/- ~5% deviation) |
 | 129-255  | Increasing speeds from normal to 4x normal |
 
-h2. Sync Stream
- 
-| *Value* | *Mode* | *Notes* |
+###Sync Stream
+
+|Value| Mode | Notes |
+---|---|---
 | 0 | Layer to Layer Stream (default) | |
 | 1-96 | Stream number | Can only output 16 streams |
 
-h2. Frame Blending Control
+###Frame Blending Control
 
-0 = no frame blending (more accurately, blend time = 0) 
+0 = no frame blending (more accurately, blend time = 0)
 1 - 255 = variable frame blend time, as a proportion of the frame time. This is a square-law control, and 50 blend time is achieved at DMX 210, 25 blend time at DMX 165
 
-h2. Combined Effects
+###Combined Effects
 
-_The Combined Effects for Mbox Studio v4.0's Layer fixtures include all effects listed below._
+>**Notes:**
+>* The Combined Effects for Mbox Studio v4.0's Layer fixtures include all effects listed below.
+>* The Output Master fixture is only able to use Effects 1 - 200
 
-_The Output Master fixture is only able to use Effects 1 - 200_
- 
-| *Value*  | *EFFECT* | *DESCRIPTION* | *MODIFIER1* | *MODIFIER2* | *MODIFIER3* | *MODIFIER4* | *MODIFIER5* |
+|Value | Effect | Description | Mod.1 | Mod.2 | Modi.3 |  Mod.4 |  Mod.5 |
+---|---|---|---|---|---|---|---
 | 0 | NONE | no effect  | | | | | |
 | 1 | Hue | hue adjustment | hue angle | | | | |
 | 2 | Hue and Saturation | combines hue and saturation effect | hue angle (127=def.) | saturation (127=def.) | | |  |
@@ -567,7 +623,7 @@ _The Output Master fixture is only able to use Effects 1 - 200_
 | 86 | Layer Edge Blend T/B | per-layer edge blend on top and bottom sides | top amount | edge softness | bottom amount | bottom edge softness | |
 | 87-88 | Reserved | n/a | | | | | |
 | 90 | Mask from File | creates mask using external file w/ alpha | mixer | file # | flip mode 0-7 | | |
-| 91 | Matte from Layer | creates alpha matte using selected layer | mixer | 1 - 24 = layer w/o FX, 101 - 124 = layer w/ FX | mode* | | |
+| 91 | Matte from Layer | creates alpha matte using selected layer | mixer | 1 - 24 = layer w/o FX, 101 - 124 = layer w/ FX | mode <sup>1</sup> | | |
 | 92-95 | Reserved | n/a | | | | | |
 | 96 | Distortion - Bump | bump distortion | radius | scale | x position | y position | |
 | 97 | Distortion - Linear Bump | linear bump distortion | radius | angle | scale | x position | y position |
@@ -626,13 +682,13 @@ _The Output Master fixture is only able to use Effects 1 - 200_
 | 167 | Op Tile | glass block tile effect | scale | width | angle | x position | y position |
 | 168 | Luma Lines | uses color and luma averaging to create line effect | mixer | width | rows | gap | |
 | 169 | Luma Blocks | uses color and luma averaging to create block effect  | mixer | width | rows | gap | |
-| 170 | Lattice - Positive | divides image into rectangles | mixer | divisions | size | | | 
-| 171 | Lattice - Negative | reverse of pos lattice | mixer | divisions | size | | | 
+| 170 | Lattice - Positive | divides image into rectangles | mixer | divisions | size | | |
+| 171 | Lattice - Negative | reverse of pos lattice | mixer | divisions | size | | |
 | 172 | Duotone - Simple | two-color duotone effect | mixer | mode | threshold | | |
 | 173 | Duotone - Hue&Saturation | duotone effect using H+S selection | threshold | hue 1 | saturation 1 | hue 2 | saturation 2 |
 | 174 | Channel Shift | separates RGB channels | mixer | horizontal offset | vertical offset | | |
 | 175 | ASCII Art | classic ASCII art effect | mixer | scale | saturation | | |
-| 176 | MetaImage | uses plugin image** to replace sampled areas in source image | mixer | file | scale | saturation | |
+| 176 | MetaImage | uses plugin image<sup>2</sup> to replace sampled areas in source image | mixer | file | scale | saturation | |
 | 177 | Drop Shadow 1 | drop shadow effect  | intensity | softness | x offset | y offset | |
 | 178 | Drop Shadow 2 | drop shadow effect | intensity | offset | | | |
 | 179 | Roll - Down | vertical roll | mixer | speed | pause | | |
@@ -658,26 +714,29 @@ _The Output Master fixture is only able to use Effects 1 - 200_
 | 230 | Texture Flip | Flips texture drawing on objects | Mode 0>31=X, 32>63=nil, 64>95=XY, 96>127=Y, 128>159=XZ, 160>191=Z, 192>223=XYZ, 224>255=YZ | | | | |
 | 231 | Spin | Spins objects | Z Spin: 0=Home, 1-126=Spin Rev, 127=Stop, 128-255=SpinFwd | X Spin: same as Z | Y Spin: same as Z | | |
 
-*Mode info for Effect 90 = Matte From Layer
+>**Notes:**
+>1. Mode info for Effect 91 = Matte From Layer
 
-| Value | Description |
-| 0 | Luma |
-| 1 | Luma Invert |
-| 2 | Red |
-| 3 | Red Invert | 
-| 4 | Green |
-| 5 | Green Invert | 
-| 6 | Blue |
-| 7 | Blue Invert |
-| 8 | Alpha |
-| 9 | Alpha Invert |
+>| Value | Description |
+> ---|---
+>| 0 | Luma |
+>| 1 | Luma Invert |
+>| 2 | Red |
+>| 3 | Red Invert |
+>| 4 | Green |
+>| 5 | Green Invert |
+>| 6 | Blue |
+>| 7 | Blue Invert |
+>| 8 | Alpha |
+>| 9 | Alpha Invert |
+>
+> 2. Plugin image (PNG or JPG) for the 176 MetaImage effect must be located in /Mbox/plugins/images/masks and must have an 8-bit index number.  File should be 900x75 pixels, with twelve 75x75 square areas in dark to light progression left to right.
 
-**Plugin image (PNG or JPG) for the 176 MetaImage effect must be located in /Mbox/plugins/images/masks and must have an 8-bit index number.  File should be 900x75 pixels, with twelve 75x75 square areas in dark to light progression left to right.
 
+###Transitions
 
-h2. Transitions
- 
-| *Value* | *Transition* |  *DESCRIPTION* |
+|Value| Transition |  Description |
+---|---|---
 | 0 | Dissolve  | dissolve (EX1) |
 | 1  | Dissolve2  | dissolve |
 | 2  | Wipe Right  | slightly blended right to left wipe |
@@ -741,11 +800,12 @@ h2. Transitions
 | 111-120  | Custom Soft-edge wipe 1-10 | soft-edge wipe using custom grayscale file |
 | 255  | Object Dissolve | fade out on current object, fade in on new object |
 
-h2. Layer Mix Modes
+###Layer Mix Modes
 
 This parameter defines how a layer's content will be cropped, centered, rotated, and/or scaled when assigned to a mix.
 
-| *Value*  | *Mode (Name)* | *Fit H/V/H&V* | *Center Y/N* | *Cropping Y/N* | *Rotation Y/N* | *DESCRIPTION* |
+|Value | Mode (Name) | Fit H/V/H&V | Center Y/N | Cropping Y/N | Rotation Y/N | Description |
+---|---|---|---|---|---|---
 | 0 | Crop Only | N | N | Y | N | crops to mix boundary, no fit, no scale, no rotation  |
 | 1 | Center, No crop | N | Y | N | N | content center is placed in center of Mix, no scale-to-fit, no rotation, NO CROP to mix boundary |
 | 2 | Center, Crop | N | Y | Y | N | content center is placed in center of Mix, no scale-to-fit, no rotation, crops to mix boundary |
@@ -776,9 +836,10 @@ This parameter defines how a layer's content will be cropped, centered, rotated,
 | 35 | Horizontal & Vertical Fit, Rotate, No crop | HV | N | N | Y | content is not centered in Mix, scale-to-fit mix horizontally & vertically, rotated to match mix rotation, NO CROP to mix boundary |
 | 36 | Horizontal & Vertical Fit, Rotate, Crop | HV | N | Y | Y | content is not centered in Mix, scale-to-fit mix horizontally & vertically, rotated to match mix rotation, crops to mix boundary |
 
-h2. Blend Modes
- 
-| *Value*  | *Blend Mode* | *DESCRIPTION* |
+###Blend Modes
+
+|Value | Blend Mode | Description |
+---|---|---
 | 0 | Standard | no blending  |
 | 1 | Additive | layer’s colors are added to underlying colors (blacks appear transparent) |
 | 2 | Screen | similar to Additive, with less of underlying color (blacks appear transparent) |
@@ -789,9 +850,10 @@ h2. Blend Modes
 | 7 | Invert Additive | layer’s colors are inverted and are added to inverse of underlying colors (blacks appear transparent) |
 | 8 | Layer Fade to Black | when reducing layer's opacity to zero, the layer turns black and stays opaque, rather than becoming transparent |
 
-h2. Draw Modes
+###Draw Modes
 
-| *Value*  | *Draw Mode* | *DESCRIPTION* |
+|Value | Draw Mode | Description |
+---|---|---
 | 0 | No Draw Mode | no effect |
 | 1 | Light/Trim | automatic ambient lighting of object/trims edge of backgrounds |
 | 2 | Cut | cuts holes in stencil mask |
@@ -804,11 +866,12 @@ h2. Draw Modes
 | 9 | Draw onto Stencil + Light | as above w/ lighting |
 | 14 | Opacity fades to Black | Opacity on layer fades to black rather than transparent |
 
-h2. Pixel Mapping Group Control Modes
+###Pixel Mapping Group Control Modes
 
 The modes listed below are used with the Pixel Mapping Group Control fixture.  The mode selected affects how the other controls and/or merge input data will affect the Mbox output.  The use of HTP modes with CMY color inversion (modes 107 & 108) is not recommended.
- 
-| *Value*  | *Control Mode* | *Description* |
+
+|Value | Control Mode | Description |
+---|---|---
 | 0 | Off | no effect  |
 | 1 | IRGB Master | RGB controls act as inhibitive submasters for Mbox’s RGB data on all fixtures in the group and Intensity control masters the final output |
 | 2 | IRGB Replace | RGB controls generate a color that replaces Mbox’s RGB data for all fixtures in the group and the Intensity control masters the final output |

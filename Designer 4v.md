@@ -65,7 +65,7 @@
 | 84 | 12 | Output 1 Geometry |
 | 96 | 26 | Output 1 Keystone |
 | 122 | 21 | Output 1 Shutter |
-| | *143*  | **TOTAL DMX CHANNELS** |
+| | **143**  | **TOTAL DMX CHANNELS** |
 
 >**Notes:**
 >* Additional Outputs may be added and use 93 channels each if all sub-fixtures are included.
@@ -529,7 +529,7 @@
 
 ###Video and Utility Inputs
 
-*Texture Folder 255 is reserved for special uses such as selecting video/syphon inputs or copying layers:*
+*Texture Folder 255 is reserved for special uses such as selecting video/syphon inputs or copying layers*
 
 | Texture Value | Input |
 ---|---
@@ -849,7 +849,7 @@
 | 231 | Spin | Spins objects | Z Spin: 0=Home, 1-126=Spin Rev, 127=Stop, 128-255=SpinFwd | X Spin: same as Z | Y Spin: same as Z | | |
 
 >**Notes:**
-> 1. Mode info for Effect 90 = Matte From Layer
+> 1. Mode info for Effect 91 = Matte From Layer
 >
 > | Value | Description |
 > ---|---
@@ -1019,7 +1019,7 @@ This parameter defines how a layer's content will be cropped, centered, rotated,
 
 The modes listed below are used with the Pixel Mapping Group Control fixture.  The mode selected affects how the other controls and/or merge input data will affect the Mbox output.  The use of HTP modes with CMY color inversion (modes 107 & 108) is not recommended.
 
-|Value | *Control Mode* | Description |
+|Value | Control Mode | Description |
 ---|---|---
 | 0 | Off | no effect  |
 | 1 | IRGB Master | RGB controls act as inhibitive submasters for Mbox’s RGB data on all fixtures in the group and Intensity control masters the final output |
