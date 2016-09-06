@@ -239,7 +239,7 @@
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
-| 1 | 1 | Master Effect 1 | 0 |**Y**| [[Mbox Designer v4.0 Mapping#Combined-Effects| Effects 1-200]] |
+| 1 | 1 | Master Effect 1 | 0 |**Y**|[Effects 1-200](#combined-effects) |
 | 2 | 1 | Master Effect Modifier 1 | 0 | N | |
 | 3 | 1 | Master Effect Modifier 2 | 0 | N | |
 | 4 | 1 | Master Effect Modifier 3 | 0 | N | |
@@ -281,7 +281,7 @@
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
-| 1 | 1 | Curve | 0 |**Y**| [[Mbox Designer v4.0 Mapping#Keystone-Blend-Curves|Keystone Blend Curves]] |
+| 1 | 1 | Curve | 0 |**Y**|[Keystone Blend Curves](#keystone-blend-curves) |
 | 2 | 1 | Gamma | 127 | N | Adjusts the gamma of all four edge blends |
 | 3 | 1 | Edge Top  | 0 | N | Edge blending-Top  |
 | 4 | 1 | Edge Right  | 0 | N | Edge blending-Right  |
@@ -304,7 +304,7 @@
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
-| 1  | 1 | Shape  | 0 |**Y**| [[Mbox Designer v4.0 Mapping#Shutter-Shapes| Shutter Shapes]] |
+| 1  | 1 | Shape  | 0 |**Y**| see [Shutter Shapes](#shutter-shapes) |
 | 2 | 1 | Red | 0 | N | |
 | 3 | 1 | Green | 0 | N | |
 | 4 | 1 | Blue | 0 | N | |
@@ -335,13 +335,13 @@
 | 4 | 1 | Blue | 127 | N | Subtractive 0-126, Additive 128 - 255 |
 | 5 | 1 | Brightness | 127 | N | |
 | 6 | 1 | Contrast | 127 | N | |
-| 7 | 1 | Texture Folder  | 0 |**Y**| Folder=255: [[Mbox Designer v4.0 Mapping#Video-and-Utility-Inputs|Video and Utility Inputs]] |
+| 7 | 1 | Texture Folder  | 0 |**Y**| Folder 255 see [Video and Utility Inputs](video-and-utility-inputs) |
 | 8 | 1 | Texture File  | 0 |**Y**| |
-| 9 | 1 | Play Mode  | 0 |**Y**| [[Mbox Designer v4.0 Mapping#Play-Modes|Play Modes]] |
-| 10 | 1 | Play Speed  | 127  | N | [[Mbox Designer v4.0 Mapping#Play-Speed|Play Speed]] |
+| 9 | 1 | Play Mode  | 0 |**Y**| see [Play Modes](#play-modes) |
+| 10 | 1 | Play Speed  | 127  | N | see [Play Speed](#play-speed) |
 | 11 | 2 | In Frame  | 0 | N | |
 | 13 | 2 | Out Frame  | 65535  | N | |
-| 15 | 1 | Sync Stream | 0 |**Y**| [[Mbox Designer v4.0 Mapping#Sync-Stream|Sync Stream]] |
+| 15 | 1 | Sync Stream | 0 |**Y**| [Sync Stream](#Sync-Stream) |
 | 16 | 1 | Sync Offset | 127  | *N* | One point in value equals one frame, positive or negative |
 | 17 | 1 | Aspect | 0 | *N* | [[Mbox Designer v4.0 Mapping#Aspect-Control|Image aspect ratio control]] |
 | 18 | 1 | Frame Blending | 255 | N | [[Mbox Designer v4.0 Mapping#Frame-Blending-Control|Frame Blending Control]] |
