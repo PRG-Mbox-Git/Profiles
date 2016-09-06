@@ -238,11 +238,11 @@ Note: A maximum of four (4) Output Masters will fit on the first universe.  If m
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
 | 1 | 1 | Master Effect 1 | 0 |**Y**| [[Mbox Designer v4.0 Mapping#Combined-Effects| Effects 1-200]] |
-| 2 | 1 | Master Effect Modifier a | 0 | N | |
-| 3 | 1 | Master Effect Modifier b | 0 | N | |
-| 4 | 1 | Master Effect Modifier d | 0 | N | |
-| 5 | 1 | Master Effect Modifier d | 0 | N | |
-| 6 | 1 | Master Effect Modifier e | 0 | N | |
+| 2 | 1 | Master Effect Modifier 1 | 0 | N | |
+| 3 | 1 | Master Effect Modifier 2 | 0 | N | |
+| 4 | 1 | Master Effect Modifier 3 | 0 | N | |
+| 5 | 1 | Master Effect Modifier 4 | 0 | N | |
+| 6 | 1 | Master Effect Modifier 5 | 0 | N | |
 | | **6**  | **TOTAL DMX CHANNELS** | | | |
 
 ###Output Master Camera
@@ -375,11 +375,11 @@ Note: A maximum of four (4) Output Masters will fit on the first universe.  If m
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
 | 1 | 1 | Layer Effect 1 | 0 |**Y**| [[Mbox Designer v4.0 Mapping#Combined-Effects| Effects 1-200]] |
-| 2 | 1 | Layer Effect Modifier 1a | 0 | N | |
-| 3 | 1 | Layer Effect Modifier 1b | 0 | N | |
-| 4 | 1 | Layer Effect Modifier 1c | 0 | N | |
-| 5 | 1 | Layer Effect Modifier 1d | 0 | N | |
-| 6 | 1 | Layer Effect Modifier 1e | 0 | N | |
+| 2 | 1 | Layer Effect Modifier 1 | 0 | N | |
+| 3 | 1 | Layer Effect Modifier 2 | 0 | N | |
+| 4 | 1 | Layer Effect Modifier 3 | 0 | N | |
+| 5 | 1 | Layer Effect Modifier 4 | 0 | N | |
+| 6 | 1 | Layer Effect Modifier 5 | 0 | N | |
 | | **6**  | **TOTAL DMX CHANNELS** | | | |
 
 ###Layer Volume
@@ -649,7 +649,7 @@ Note: A maximum of four (4) Output Masters will fit on the first universe.  If m
 > * The Combined Effects for Mbox Designer v4.0's Layer fixtures include all effects listed below.
 > * The Output Master fixture is only able to use Effects 1 - 200
 
-|Value | Effect | Description | Modifier 1 | Modifier 2 | Modifier 3 |  Modifier 4 |  Modifier 5 |
+|Value | Effect | Description | Mod.1 | Mod.2 | Modi.3 |  Mod.4 |  Mod.5 |
 ---|---|---|---|---|---|---|---
 | 0 | NONE | no effect  | | | | | |
 | 1 | Hue | hue adjustment | hue angle | | | | |
