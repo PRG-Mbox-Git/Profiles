@@ -33,7 +33,7 @@
 | 122 | 21 | Output 1 Shutter |
 | | *143*  | **TOTAL DMX CHANNELS** |
 
->Notes
+>**Notes:**
 >* Additional Outputs may be added and use 93 channels each if all sub-fixtures are included.
 
 >* A maximum of four (4) Output Masters will fit on the first universe.  If more than four are required, additional universes must be patched.  Output Masters 5-9 would be on the second universe, and would move the Layers up to the next consecutive universe.  Adding more Output Masters beyond 9 would move the Layers up again, and so on...
@@ -966,7 +966,7 @@ This parameter defines how a layer's content will be cropped, centered, rotated,
 
 ###Draw Modes
 
-|Value | *Draw Mode* | Description |
+|Value | Draw Mode | Description |
 ---|---|---
 | 0 | No Draw Mode | no effect |
 | 1 | Light/Trim | automatic ambient lighting of object/trims edge of backgrounds |
