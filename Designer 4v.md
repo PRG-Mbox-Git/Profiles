@@ -215,7 +215,7 @@
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
 | 1 | 1 | Global Intensity | 255 | N | Overall dimming (in IO Module if applicable) |
-| 2 | 1 | Control | 0 |**Y**|  [see Global Master Control Channel](#Global-Master-Control-Channel)  |
+| 2 | 1 | Control | 0 |**Y**|  [see Global Master Control Channel](#global-master-control-channel)  |
 | 3 | 1 | Control Selector | 0 |**Y**| Modifier for Control macros |
 | 4 | 1 | Pixel Mapping Output Level | 255 | N | Master level for pixel-mapped outputs  |
 | 5 | 1 | Global Volume | 255 | N | Master level for all audio |
