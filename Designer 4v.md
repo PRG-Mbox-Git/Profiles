@@ -33,9 +33,10 @@
 | 122 | 21 | Output 1 Shutter |
 | | *143*  | **TOTAL DMX CHANNELS** |
 
->Note: Additional Outputs may be added and use 93 channels each if all sub-fixtures are included.
+>Notes
+>* Additional Outputs may be added and use 93 channels each if all sub-fixtures are included.
 
->Note: A maximum of four (4) Output Masters will fit on the first universe.  If more than four are required, additional universes must be patched.  Output Masters 5-9 would be on the second universe, and would move the Layers up to the next consecutive universe.  Adding more Output Masters beyond 9 would move the Layers up again, and so on...
+>* A maximum of four (4) Output Masters will fit on the first universe.  If more than four are required, additional universes must be patched.  Output Masters 5-9 would be on the second universe, and would move the Layers up to the next consecutive universe.  Adding more Output Masters beyond 9 would move the Layers up again, and so on...
 
 ###Layers 1-6
 *Standard Universe Offset +1*
