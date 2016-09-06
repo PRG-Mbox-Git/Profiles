@@ -100,8 +100,9 @@
 | 122 | 21 | Output 1 Shutter | Optional |
 | | **143**  | **TOTAL DMX CHANNELS** |
 
-Note: Additional Output Masters may be added.  Each Output Master may have different options enabled - effects, camera, geometry, keystone, shutter.
-Note: A maximum of four (4) Output Masters will fit on the first universe.  If more than four are required, additional universes must be patched.  Output Masters 5-9 would be on the second universe, and would move the Layers up to the next consecutive universe.  Adding more Output Masters beyond 9 would move the Layers up again, and so on...
+>**Notes:**
+* Additional Output Masters may be added.  Each Output Master may have different options enabled - effects, camera, geometry, keystone, shutter.
+* A maximum of four (4) Output Masters will fit on the first universe.  If more than four are required, additional universes must be patched.  Output Masters 5-9 would be on the second universe, and would move the Layers up to the next consecutive universe.  Adding more Output Masters beyond 9 would move the Layers up again, and so on...
 
 ###Output Master 5-8
 *Universe Offset +1*
@@ -421,7 +422,7 @@ Note: A maximum of four (4) Output Masters will fit on the first universe.  If m
 |Value|Command| Notes |Macro Trigger Action|Master Control Selector|
 ---|---|---|---|---|---
 | 10-19  | Output Stats HUD | Shows output size, refresh, rendering stats | n/a | n/a |
-| 20-29  | Performance HUD | Shows overall perfromance, playback, rendering, etc. | n/a | n/a |
+| 20-29  | Performance HUD | Shows overall performance, playback, rendering, etc. | n/a | n/a |
 | 40-44  | Lights/Master/Shutter/Keystone HUD - Output 1 Control Input Universe A| | n/a | n/a |
 | 45-49  | Lights/Master/Shutter/Keystone HUD - Output 2 Control Input Universe B| | n/a | n/a |
 | 50-54  | Texture HUD - Layers 1-6, Output 1 Control Input Universe A| | n/a | n/a |
@@ -488,8 +489,9 @@ Note: A maximum of four (4) Output Masters will fit on the first universe.  If m
 | 13 | Use DMX | Sine | Y | X/Y Corner controls |
 | 14 | Use DMX | No Blending | Y | X/Y Corner controls |
 
-* A Keystone Curve value of 0 enables the advanced  toolset that is accessed through the UI in the Mbox or Mbox Remote Application
-* When the value is set to 0 settings  from the advanced toolset will negate the standard corner, edge-blend, and linearity controls, but not the Output Geometry controls.
+>**Notes:**
+>* A Keystone Curve value of 0 enables the advanced  toolset that is accessed through the UI in the Mbox or Mbox Remote Application
+>* When the value is set to 0 settings  from the advanced toolset will negate the standard corner, edge-blend, and linearity controls, but not the Output Geometry controls.
 
 ###Video and Utility Inputs
 
@@ -632,7 +634,7 @@ Note: A maximum of four (4) Output Masters will fit on the first universe.  If m
 
 ###Aspect Control
 
-|Value| *Mode* |
+|Value| Mode |
 ---|---
 | 0 | Square Pixels (default) |
 | 1-126  | Ratios scaling from 1:4 to 1:1 |
@@ -811,25 +813,23 @@ Note: A maximum of four (4) Output Masters will fit on the first universe.  If m
 | 230 | Texture Flip | Flips texture drawing on objects | Mode 0>31=X, 32>63=nil, 64>95=XY, 96>127=Y, 128>159=XZ, 160>191=Z, 192>223=XYZ, 224>255=YZ | | | | |
 | 231 | Spin | Spins objects | Z Spin: 0=Home, 1-126=Spin Rev, 127=Stop, 128-255=SpinFwd | X Spin: same as Z | Y Spin: same as Z | | |
 
-####Notes:
-<sup>1</sup>
-Mode info for Effect 90 = Matte From Layer
-
-| Value | Description |
----|---
-| 0 | Luma |
-| 1 | Luma Invert |
-| 2 | Red |
-| 3 | Red Invert |
-| 4 | Green |
-| 5 | Green Invert |
-| 6 | Blue |
-| 7 | Blue Invert |
-| 8 | Alpha |
-| 9 | Alpha Invert |
-
-<sup>2</sup>
-Plugin image (PNG or JPG) for the 176 MetaImage effect must be located in /Mbox/plugins/images/masks and must have an 8-bit index number.  File should be 900x75 pixels, with twelve 75x75 square areas in dark to light progression left to right.
+>**Notes:**
+> 1. Mode info for Effect 90 = Matte From Layer
+>
+> | Value | Description |
+> ---|---
+> | 0 | Luma |
+> | 1 | Luma Invert |
+> | 2 | Red |
+> | 3 | Red Invert |
+> | 4 | Green |
+> | 5 | Green Invert |
+> | 6 | Blue |
+> | 7 | Blue Invert |
+> | 8 | Alpha |
+> | 9 | Alpha Invert |
+>
+> 2. Plugin image (PNG or JPG) for the 176 MetaImage effect must be located in /Mbox/plugins/images/masks and must have an 8-bit index number.  File should > be 900x75 pixels, with twelve 75x75 square areas in dark to light progression left to right.
 
 ###Transitions
 
