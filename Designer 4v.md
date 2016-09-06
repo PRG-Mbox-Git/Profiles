@@ -10,6 +10,40 @@
 * The Output Master fixture includes Base functionality, plus optional Effects (2),  Camera, Geometry, Keystone, and Shutter sub-fixtures.
 * A standard/base configuration includes Lighting (5 Pro Lights), Global Master, six Layer controls (each with 4 effects,, volume, and timecode), and one Output Master (with all sub-fixtures).
 
+> ## Sections
+> [Summary - Standard Configuration (Quick Patch)](#summary---standard-configuration-quick-patch)
+> [Summary - Custom Configuration (Custom Patch)](#summary---custom-configuration-custom-patch)
+> [Fixture Descriptions](#fixture-descriptions)
+>   [Pro Light](#pro-light)
+>   [Global Master](#global-master)
+>   [Output Master Base](#output-master-base)
+>   [Output Master Effect](#output-master-effect)
+>   [Output Master Camera](#output-master-camera)
+>   [Output Master Geometry](#output-master-geometry)
+>   [Output Master Keystone](#output-master-keystone)
+>   [Output Master Shutter](#output-master-shutter)
+>   [Layer Base](#layer-base)
+>   [Layer FX](#layer-fx)
+>   [Layer Volume](#layer-volume)
+>   [Layer DMX Timecode](#layer-dmx-timecode)
+>   [Pixel Mapping Group Control](#pixel-mapping-group-control)
+> [Channel Definitions](#channel-definitions)
+>   [Global Master Control Channel](#global-master-control-channel)
+>   [Shutter Shapes](#shutter-shapes)
+>   [Keystone Blend Curves](#keystone-blend-curves)
+>   [Video and Utility Inputs](#video-and-utility-inputs)
+>   [Play Modes](#play-modes)
+>   [Play Speed](#play-speed)
+>   [Sync Stream](#sync-stream)
+>   [Frame Blending Control](#frame-blending-control)
+>   [Combined Effects](#combined-effects)
+>   [Transitions](#transitions)
+>   [Object Transitions](#object-transitions)
+>   [Layer Mix Modes](#layer-mix-modes)
+>   [Blend Modes](#blend-modes)
+>   [Draw Modes](#draw-modes)
+>   [Pixel Mapping Group Control Modes](#pixel-mapping-group-control-modes)
+
 
 ## Summary - Standard Configuration (Quick Patch)
 
@@ -335,7 +369,7 @@
 | 4 | 1 | Blue | 127 | N | Subtractive 0-126, Additive 128 - 255 |
 | 5 | 1 | Brightness | 127 | N | |
 | 6 | 1 | Contrast | 127 | N | |
-| 7 | 1 | Texture Folder  | 0 |**Y**| Folder 255 see [Video and Utility Inputs](video-and-utility-inputs) |
+| 7 | 1 | Texture Folder  | 0 |**Y**| Folder 255; see [Video and Utility Inputs](video-and-utility-inputs) |
 | 8 | 1 | Texture File  | 0 |**Y**| |
 | 9 | 1 | Play Mode  | 0 |**Y**| see [Play Modes](#play-modes) |
 | 10 | 1 | Play Speed  | 127  | N | see [Play Speed](#play-speed) |
@@ -376,7 +410,7 @@
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
-| 1 | 1 | Layer Effect 1 | 0 |**Y**| see [Combined Effects](combined-effects)] |
+| 1 | 1 | Layer Effect 1 | 0 |**Y**| see [Combined Effects](combined-effects) |
 | 2 | 1 | Layer Effect Modifier 1 | 0 | N | |
 | 3 | 1 | Layer Effect Modifier 2 | 0 | N | |
 | 4 | 1 | Layer Effect Modifier 3 | 0 | N | |
@@ -408,7 +442,7 @@
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
-| 1 | 1 | Control Mode | 0 |**Y**| see [Pixel Mapping Group Control Modes](#pixel-mapping-group-control-modes)] |
+| 1 | 1 | Control Mode | 0 |**Y**| see [Pixel Mapping Group Control Modes](#pixel-mapping-group-control-modes) |
 | 2 | 1 | Intensity/Crossfade | 255 | N | Used as Intensity or Crossfade depending on the selected control mode |
 | 3 | 1 | Red/Cyan | 255/0 | N | Used as Red with RGB control modes, and as Cyan with CMY control modes |
 | 4 | 1 | Green/Magenta | 255/0 | N | Used as Green with RGB control modes, and as Magenta with CMY control modes |
