@@ -113,7 +113,7 @@ Universe Offset +1
 | 280 | 93 | Output Master 8 |
 
 
-*Layers 1-6*
+**Layers 1-6**
 Universe Offset +2
 
 Types listed as Required must be patched for the layer to work.  Optional types can be enabled/disabled for every layer, but not on a per-layer basis.
@@ -182,9 +182,9 @@ Universe Offset +5
 *See Previous Universe*
 | | *486*  | *TOTAL DMX CHANNELS* |
 
-h1. Fixture Descriptions
+## Fixture Descriptions
 
-h2. Pro Light 
+###Pro Light 
 
 (Optional, up to 5 allowed)
 
