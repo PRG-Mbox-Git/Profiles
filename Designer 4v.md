@@ -197,7 +197,7 @@ Note: A maximum of four (4) Output Masters will fit on the first universe.  If m
 *Optional, up to 5 allowed*
 
 | Channel | Size | Function | Default | Snap | Notes |
----|---|---|---
+---|---|---|---|---|---
 | 1  | 1 | Intensity | 0 | N | |
 | 2 | 1 | Red  | 255 | N | |
 | 3 | 1 | Green  | 255 | N | |
