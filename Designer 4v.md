@@ -410,7 +410,7 @@
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
-| 1 | 1 | Layer Effect 1 | 0 |**Y**| see [Combined Effects](combined-effects) |
+| 1 | 1 | Layer Effect 1 | 0 |**Y**| see [Combined Effects](#combined-effects) |
 | 2 | 1 | Layer Effect Modifier 1 | 0 | N | |
 | 3 | 1 | Layer Effect Modifier 2 | 0 | N | |
 | 4 | 1 | Layer Effect Modifier 3 | 0 | N | |
@@ -687,7 +687,7 @@
 > * The Output Master fixture is only able to use Effects 1 - 200
 > * Due to GitHub formatting scroll right for Mod.5
 
-|Value | Effect | Description | Mod.1 | Mod.2 | Modi.3 |  Mod.4 |  Mod.5 |
+|Value | Effect | Description | Mod.1 | Mod.2 | Mod.3 |  Mod.4 |  Mod.5 |
 ---|---|---|---|---|---|---|---
 | 0 | NONE | no effect  | | | | | |
 | 1 | Hue | hue adjustment | hue angle | | | | |
