@@ -215,7 +215,7 @@
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
 | 1 | 1 | Global Intensity | 255 | N | Overall dimming (in IO Module if applicable) |
-| 2 | 1 | Control | 0 |**Y**|  [see Global Master Control Channel](#global-master-control-channel)  |
+| 2 | 1 | Control | 0 |**Y**|  see [Global Master Control Channel](#global-master-control-channel)  |
 | 3 | 1 | Control Selector | 0 |**Y**| Modifier for Control macros |
 | 4 | 1 | Pixel Mapping Output Level | 255 | N | Master level for pixel-mapped outputs  |
 | 5 | 1 | Global Volume | 255 | N | Master level for all audio |
@@ -239,7 +239,7 @@
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
-| 1 | 1 | Master Effect 1 | 0 |**Y**|[Effects 1-200](#combined-effects) |
+| 1 | 1 | Master Effect 1 | 0 |**Y**| see [Combined Effects](#combined-effects) |
 | 2 | 1 | Master Effect Modifier 1 | 0 | N | |
 | 3 | 1 | Master Effect Modifier 2 | 0 | N | |
 | 4 | 1 | Master Effect Modifier 3 | 0 | N | |
@@ -281,7 +281,7 @@
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
-| 1 | 1 | Curve | 0 |**Y**|[Keystone Blend Curves](#keystone-blend-curves) |
+| 1 | 1 | Curve | 0 |**Y**|see [Keystone Blend Curves](#keystone-blend-curves) |
 | 2 | 1 | Gamma | 127 | N | Adjusts the gamma of all four edge blends |
 | 3 | 1 | Edge Top  | 0 | N | Edge blending-Top  |
 | 4 | 1 | Edge Right  | 0 | N | Edge blending-Right  |
@@ -341,15 +341,15 @@
 | 10 | 1 | Play Speed  | 127  | N | see [Play Speed](#play-speed) |
 | 11 | 2 | In Frame  | 0 | N | |
 | 13 | 2 | Out Frame  | 65535  | N | |
-| 15 | 1 | Sync Stream | 0 |**Y**| [Sync Stream](#Sync-Stream) |
+| 15 | 1 | Sync Stream | 0 |**Y**| see [Sync Stream](#sync-stream) |
 | 16 | 1 | Sync Offset | 127  | *N* | One point in value equals one frame, positive or negative |
-| 17 | 1 | Aspect | 0 | *N* | [[Mbox Designer v4.0 Mapping#Aspect-Control|Image aspect ratio control]] |
-| 18 | 1 | Frame Blending | 255 | N | [[Mbox Designer v4.0 Mapping#Frame-Blending-Control|Frame Blending Control]] |
-| 19 | 1 | Texture XFade Type  | 0 |**Y**| [[Mbox Designer v4.0 Mapping#Transitions|Transitions]] |
+| 17 | 1 | Aspect | 0 | *N* | see [Aspect Control](#aspect-control) |
+| 18 | 1 | Frame Blending | 255 | N | see [Frame Blending Control](#frame-blending-control) |
+| 19 | 1 | Texture XFade Type  | 0 |**Y**| see [Transitions](#transitions) |
 | 20 | 1 | Texture XFade Timing  | 0 |**Y**| |
 | 21 | 1 | Object Folder  | 0 |**Y**| |
 | 22 | 1 | Object File  | 0 |**Y**|  |
-| 23 | 1 | Object XFade Type  | 0 |**Y**| [[Mbox Designer v4.0 Mapping#Object-Transitions|Object Transitions]] |
+| 23 | 1 | Object XFade Type  | 0 |**Y**| see [Object Transitions](#object-transitions) |
 | 24 | 1 | Object XFade Timing  | 0 | **Y**| |
 | 25 | 2 | X Position  | 32767  | N | |
 | 27 | 2 | Y Position  | 32767  | N | |
@@ -365,9 +365,9 @@
 | 46 | 1 | X Spin  | 127  | N | |
 | 47 | 1 | Y Spin  | 127  | N | |
 | 48 | 1 | Mix Select | 0 |**Y**| Selects which Mix the layer is assigned to |
-| 49 | 1 | Mix Mode | 0 |**Y**| [[Mbox Designer v4.0 Mapping#Layer-Mix-Modes| Centering and Fit Modes for content assigned to a Mix]] |
-| 50 | 1 | Layer Blend Mode/Draw Mode  | 0 |**Y**| [[Mbox Designer v4.0 Mapping#Blend-Modes| Blend Modes]] |
-| 51 | 1 | Layer Draw Mode  | 0 |**Y**| [[Mbox Designer v4.0 Mapping#Draw-Modes| Draw Modes]] |
+| 49 | 1 | Mix Mode | 0 |**Y**| see [Layer Mix Modes](#layer-mix-modes) |
+| 50 | 1 | Layer Blend Mode/Draw Mode  | 0 |**Y**| see [Blend Modes](#blend-modes) |
+| 51 | 1 | Layer Draw Mode  | 0 |**Y**| see [Draw Modes](#draw-modes) |
 | 52 | 1 | Image Remap | 0 |**Y**| Selects which Image Remapping configuration the layer uses |
 | | **52**  | **TOTAL DMX CHANNELS** | | | |
 
@@ -376,7 +376,7 @@
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
-| 1 | 1 | Layer Effect 1 | 0 |**Y**| [[Mbox Designer v4.0 Mapping#Combined-Effects| Effects 1-200]] |
+| 1 | 1 | Layer Effect 1 | 0 |**Y**| see [Combined Effects](combined-effects)] |
 | 2 | 1 | Layer Effect Modifier 1 | 0 | N | |
 | 3 | 1 | Layer Effect Modifier 2 | 0 | N | |
 | 4 | 1 | Layer Effect Modifier 3 | 0 | N | |
@@ -408,7 +408,7 @@
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
-| 1 | 1 | Control Mode | 0 |**Y**| [[Mbox Designer v4.0 Mapping#Pixel-Mapping-Group-Control-Modes|Pixel Mapping Group Control Modes]] |
+| 1 | 1 | Control Mode | 0 |**Y**| see [Pixel Mapping Group Control Modes](#pixel-mapping-group-control-modes)] |
 | 2 | 1 | Intensity/Crossfade | 255 | N | Used as Intensity or Crossfade depending on the selected control mode |
 | 3 | 1 | Red/Cyan | 255/0 | N | Used as Red with RGB control modes, and as Cyan with CMY control modes |
 | 4 | 1 | Green/Magenta | 255/0 | N | Used as Green with RGB control modes, and as Magenta with CMY control modes |
