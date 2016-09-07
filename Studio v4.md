@@ -702,7 +702,8 @@ Notes:
 | 186 | Cartoon | cartoon effect | mixer | line width | color reduction | | |
 | 187 | Shaded Material | luma in input image creates relief map | layer # | scale | | | |
 | 188 | Histogram | ? | height | high limit | low limit | | |
-| 189-220 | Reserved | n/a | | | | | |
+| 189 | Roll - XY | horizontal and vertical roll | mixer | x amount | y amount | | |
+| 190-220 | Reserved | n/a | | | | | |
 | 221 | LRBT Shutter | mask sides of layer | left | right | bottom | top | |
 | 222 | Move Center | shift rotational center of image | X (127=def.) | Y (127=def.) | | | |
 | 223 | Shake 3D | X/Y shake effect | X | Y | | | |
