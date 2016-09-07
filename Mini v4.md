@@ -497,7 +497,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 84 | Layer Edge Blend Bottom | per-layer edge blend on bottom side | amount | edge softness | | | |
 | 85 | Layer Edge Blend L/R | per-layer edge blend on left and right sides | left amount | edge softness | right amount | right edge softness | |
 | 86 | Layer Edge Blend T/B | per-layer edge blend on top and bottom sides | top amount | edge softness | bottom amount | bottom edge softness | |
-| 87-88 | Reserved | n/a | | | | | |
+| 87-89 | Reserved | n/a | | | | | |
 | 90 | Mask from File | creates mask using external file w/ alpha | mixer | file # | flip mode 0-7 | | |
 | 91 | Matte from Layer | creates alpha matte using selected layer | mixer | 1 - 24 = layer w/o FX, 101 - 124 = layer w/ FX | mode<sup>1</sup> | | |
 | 92-95 | Reserved | n/a | | | | | |
@@ -592,7 +592,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 231 | Spin | Spins objects | Z Spin: 0=Home, 1-126=Spin Rev, 127=Stop, 128-255=SpinFwd | X Spin: same as Z | Y Spin: same as Z | | |
 
 >**Notes:**
-> 1. Mode info for Effect 91 = Matte From Layer
+> 1) Mode info for Effect 91 = Matte From Layer
 >
 | Value | Description |
 ---|---
@@ -607,7 +607,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 8 | Alpha |
 | 9 | Alpha Invert |
 
->2. Plugin image (PNG or JPG) for the 176 MetaImage effect must be located in /Mbox/plugins/images/masks and must have an 8-bit index number.  File should be 900x75 pixels, with twelve 75x75 square areas in dark to light progression left to right.
+>2) Plugin image (PNG or JPG) for the 176 MetaImage effect must be located in /Mbox/plugins/images/masks and must have an 8-bit index number.  File should be 900x75 pixels, with twelve 75x75 square areas in dark to light progression left to right.
 
 
 ###Transitions
