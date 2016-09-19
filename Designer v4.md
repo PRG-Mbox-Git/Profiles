@@ -873,13 +873,13 @@ As of September 19, 2016...
 ---|---|---
 | 0 | Dissolve  | dissolve (EX1) |
 | 1  | Dissolve2  | dissolve |
-| 2  | Wipe Right  | slightly blended right to left wipe |
-| 3  | Wipe Left  | slightly blended left to right wipe |
+| 2  | Wipe Right  | slightly blended left to right wipe |
+| 3  | Wipe Left  | slightly blended right to left wipe |
 | 4  | Wipe Down  | slightly blended top to bottom wipe |
 | 5  | Wipe Up  | slightly blended bottom to top wipe |
 | 6  | Wipe Diagonal  | slightly blended diagonal wipe |
-| 7  | Wash Right  | more blended right to left |
-| 8  | Wash Left  | more blended left to right |
+| 7  | Wash Right  | more blended left to right |
+| 8  | Wash Left  | more blended right to left |
 | 9  | Wash Down  | more blended top to bottom |
 | 10  | Wash Up  | more blended bottom to top |
 | 11  | Wash Diagonal  | more blended diagonal |
