@@ -1,4 +1,5 @@
-#Mbox Studio v40 Mapping
+#Mbox Studio v4.0 Mapping
+As of September 19, 2016
 
 Notes:
 * Mbox uses default values of 127 and 32767 for some parameters, rather than 128 and 32768.  Using incorrect default values will have a severe negative impact on operation!
@@ -372,14 +373,14 @@ Notes:
 ---|---|---|---|---|---
 | 10-19  | Output Stats HUD | Shows output size, refresh, rendering stats | n/a | n/a |
 | 20-29  | Performance HUD | Shows overall performance, playback, rendering, etc. | n/a | n/a |
-| 40-44  | Lights/Master/Shutter/Keystone HUD - Output 1 Control Input Universe A| | n/a | n/a |
-| 45-49  | Lights/Master/Shutter/Keystone HUD - Output 2 Control Input Universe B| | n/a | n/a |
+| 40-49  | Lights/Master/Shutter/Keystone HUD - Output 1 Control Input Universe A| | n/a | n/a |
 | 50-54  | Texture HUD - Layers 1-6, Output 1 Control Input Universe A| | n/a | n/a |
 | 55-59  | Texture HUD - Layer 7-12, Output 2 Control Input Universe B| | n/a | n/a |
-| 60-64  | Objects HUD - Layers 1-6, Output 1 Control Input Universe A| | n/a | n/a |
-| 65-69  | Objects HUD - Layers 7-12, Output 2 Control Input Universe B| | n/a | n/a |
+| 60-64  | Effects HUD - Layers 1-6, Output 1 Control Input Universe A| | n/a | n/a |
+| 65-69  | Effects HUD - Layers 7-12, Output 2 Control Input Universe B| | n/a | n/a |
 | 70-71  | Raw Control Input HUD Universe A| | n/a | n/a |
 | 72-73  | Raw Control Input HUD Universe B| | n/a | n/a |
+| 74-75  | Raw Control Input HUD Universe C| | n/a | n/a |
 | 80-89  | Show Pix-map Context View | 80 = All contexts, 81-89 = context 1-9  | n/a | n/a |
 | 110-111  | Show Timecode HUD (Center) | | n/a | n/a |
 | 112-113  | Show Timecode HUD (Top Right) | | n/a | n/a |
@@ -388,7 +389,6 @@ Notes:
 | 118-119  | Show Timecode HUD (Bottom Left) | | n/a | n/a |
 | 201  | Run Script | Runs indexed shell script or AppleScript from /Mbox /plugins/scripts | Value then 0 | 0-255 for script # |
 | 202  | Change Pixel Mapping File | Switches indexed PixMap config from /Mbox/PixelMapping/ | Value then 0 | 0-255 for config # |
-| 203  | Change Alignment Rectangle File | Switches indexed alignment rect file from /Mbox/alignment/ | Value then 0 | 0-255 for file # |
 | 220  | Cancel Keyboard HUD | | Value then 0 | n/a |
 | 221  | Show Object Mesh | Shows white transparent mesh on objects | n/a | 0 = all, 1-24 = by layer # |
 | 222  | Show Edge-blend Guides | Shows guidelines for blend areas | n/a | n/a |
@@ -564,8 +564,8 @@ Notes:
 | 5 | Monochrome | convert colors to grayscale | amount | red | green | blue | alpha |
 | 6 | Sepia Tone | convert colors to sepia tone image | amount | | | | |
 | 7 | Invert | color invert  | | | | | |
-| 8 | Hilight & Shadow | ? | radius | highlight amount | shadow amount | | |
-| 9 | Vibrance | ? | amount | | | | |
+| 8 | Hilight & Shadow | adjusts tonal mapping | radius | highlight amount | shadow amount | | |
+| 9 | Vibrance | adjusts saturation | amount | | | | |
 | 10 | Solarize | solarize effect | intensity  | | | | |
 | 11 | X-Ray | inverted grayscale | intensity  | | | | |
 | 12 | Color Switch | RGB->RBG/BGR/BRG/GBR/GRB | intensity | mode | | | |
@@ -579,9 +579,9 @@ Notes:
 | 20 | Black Threshold | renders black areas as true black | intensity | threshold | | | |
 | 21-31 | Reserved | n/a | | | | | |
 | 32 | Blur - Quick | simple/quick image blur | mixer | amount | | | |
-| 33 | Blur - QuickX | ? | mixer | amount | | | |
-| 34 | Blur - QuickY | ? | mixer | amount | | | |
-| 35 | Blur - Box | ? | radius | | | | |
+| 33 | Blur - QuickX | quick blur on x axis | mixer | amount | | | |
+| 34 | Blur - QuickY | quick blur on y axis | mixer | amount | | | |
+| 35 | Blur - Box | box-shaped convolution | radius | | | | |
 | 36 | Blur - Gaussian | more sophisticated/slow blur | radius | | | | |
 | 37 | Blur - Zoom | blurs from center of image | size | x position | y position | | |
 | 38 | Blur - Motion | blurs along a variable axis | radius | angle | | | |
@@ -595,9 +595,9 @@ Notes:
 | 50 | Key - Invert Red | everything but red areas transparent | intensity | threshold | | | |
 | 51 | Key - Invert Green | everything but green areas transparent | intensity | threshold | | | |
 | 52 | Key - Invert Blue | everything but blue areas transparent | intensity | threshold | | | |
-| 53 | Key - RGB | ? | intensity | threshold | red | green | blue |
-| 54 | Key - HSV | ? | intensity | threshold | hue | saturation | value |
-| 55 | Key - XY | ? | intensity | threshold | x position | y position | |
+| 53 | Key - RGB | specific RGB color transparent | intensity | threshold | red | green | blue |
+| 54 | Key - HSV | specific HSV color transparent | intensity | threshold | hue | saturation | value |
+| 55 | Key - XY | specific XY location color transparent | intensity | threshold | x position | y position | |
 | 56 | Key - Luma | renders bright areas transparent | intensity | threshold | | | |
 | 57 | Key - Luma Inverse | renders dark areas transparent | intensity | threshold | | | |
 | 58-63 | Reserved | n/a | | | | | |
@@ -606,22 +606,22 @@ Notes:
 | 66 | Crop - Circular XY | circ image crop with edge blur & X/Y position ctrl | mixer | size | edge | x position (127=def.) | x position (127=def.) |
 | 67 | Crop - Rectangular XY | rect image crop with edge blur & X/Y position ctrl | mixer | size | edge | x position (127=def.) | x position (127=def.) |
 | 68 | Crop - Oval XY | oval image crop with edge blur & X/Y position ctrl | size | edge | x position (127=def.) | y position (127=def.) | aspect |
-| 69 | Crop - Horizontal | horizontal 90° shutters | insertion | center (127=def.) | | | |
-| 70 | Crop - Vertical | vertical 90° shutters | mixer | insertion | center (127=def.) | | |
+| 69 | Crop - Horizontal | horizontal 90° shutters | mixer | width | center (127=def.) | | |
+| 70 | Crop - Vertical | vertical 90° shutters | mixer | height | center (127=def.) | | |
 | 71 | Crop - Orth Shutter | horizontal & vertical 90° shutters | mixer | H insertion | V insertion | | |
-| 72 | Crop - Slitscan Horizontal | ? | mixer | width | height | position | |
-| 73 | Crop - Slitscan Vertical | ? | mixer | width | height | position | |
-| 74 | Crop - Slitscan Horizontal Swing | ? | mixer | width | height | position | swing |
-| 75 | Crop - Slitscan Vertical Swing | ? | mixer | width | height | position | swing |
-| 76 | Crop - Slitscan Horizontal Random Swing | ? | mixer | width | height | position | swing |
-| 77 | Crop - Slitscan Vertical Random Swing | ? | mixer | width | height | position | swing |
+| 72 | Crop - Slitscan Horizontal | horizontal 90° shutters | mixer | width | center (127=def.) | | |
+| 73 | Crop - Slitscan Vertical | vertical 90° shutters | mixer | height | center (127=def.) | | |
+| 74 | Crop - Slitscan Horizontal Swing | horizontal shutters with motion | mixer | width | scanrate | swing | |
+| 75 | Crop - Slitscan Vertical Swing | vertical shutters with motion | mixer | height | scanrate | swing | |
+| 76 | Crop - Slitscan Horizontal Random Swing | horizontal shutters with random motion | mixer | width | scanrate | swing | |
+| 77 | Crop - Slitscan Vertical Random Swing | vertical shutters with random motion | mixer | height | scanrate | swing | |
 | 78-80 | Reserved | n/a | | | | | |
 | 81 | Layer Edge Blend Right | per-layer edge blend on right side | amount | edge softness | | | |
 | 82 | Layer Edge Blend Left | per-layer edge blend on left side | amount | edge softness | | | |
 | 83 | Layer Edge Blend Top | per-layer edge blend on top side | amount | edge softness | | | |
 | 84 | Layer Edge Blend Bottom | per-layer edge blend on bottom side | amount | edge softness | | | |
-| 85 | Layer Edge Blend L/R | per-layer edge blend on left and right sides | left amount | edge softness | right amount | right edge softness | |
-| 86 | Layer Edge Blend T/B | per-layer edge blend on top and bottom sides | top amount | edge softness | bottom amount | bottom edge softness | |
+| 85 | Layer Edge Blend L/R | per-layer edge blend on left and right sides | left amount | left edge softness | right amount | right edge softness | |
+| 86 | Layer Edge Blend T/B | per-layer edge blend on top and bottom sides | top amount | top edge softness | bottom amount | bottom edge softness | |
 | 87-89 | Reserved | n/a | | | | | |
 | 90 | Mask from File | creates mask using external file w/ alpha | mixer | file # | flip mode 0-7 | | |
 | 91 | Matte from Layer | creates alpha matte using selected layer | mixer | 1 - 24 = layer w/o FX, 101 - 124 = layer w/ FX | mode <sup>1</sup> | | |
@@ -644,7 +644,7 @@ Notes:
 | 115-117 | Reserved | n/a | | | | | |
 | 118 | Pixellate - Square | pixellates image, square | scale | x position | y position | | |
 | 119 | Pixellate - Hexagonal | pixellates image, hexagonal | scale | x position | y position | | |
-| 120 | Crystalize | break up into crystal pattern | radius | x position | y position | | |
+| 120 | Crystallize | break up into crystal pattern | radius | x position | y position | | |
 | 121 | Pointillize | break image into points | radius | x position | y position | | |
 | 122-126 | Reserved | n/a | | | | | |
 | 127 | Tile - 1 | image tiling | mixer | divisions | | | |
@@ -741,13 +741,13 @@ Notes:
 ---|---|---
 | 0 | Dissolve  | dissolve (EX1) |
 | 1  | Dissolve2  | dissolve |
-| 2  | Wipe Right  | slightly blended right to left wipe |
-| 3  | Wipe Left  | slightly blended left to right wipe |
+| 2  | Wipe Right  | slightly blended left to right wipe |
+| 3  | Wipe Left  | slightly blended right to left wipe |
 | 4  | Wipe Down  | slightly blended top to bottom wipe |
 | 5  | Wipe Up  | slightly blended bottom to top wipe |
 | 6  | Wipe Diagonal  | slightly blended diagonal wipe |
-| 7  | Wash Right  | more blended right to left |
-| 8  | Wash Left  | more blended left to right |
+| 7  | Wash Right  | more blended left to right |
+| 8  | Wash Left  | more blended right to left |
 | 9  | Wash Down  | more blended top to bottom |
 | 10  | Wash Up  | more blended bottom to top |
 | 11  | Wash Diagonal  | more blended diagonal |
@@ -850,7 +850,6 @@ This parameter defines how a layer's content will be cropped, centered, rotated,
 | 5 | Exclusion | underlying colors are inverted where layer color is lighter; layer’s colors are then added to underlying colors (blacks appear transparent) |
 | 6 | Invert Subtractive | underlying colors are subtracted from layer’s colors (blacks appear opaque) |
 | 7 | Invert Additive | layer’s colors are inverted and are added to inverse of underlying colors (blacks appear transparent) |
-| 8 | Layer Fade to Black | when reducing layer's opacity to zero, the layer turns black and stays opaque, rather than becoming transparent |
 
 ###Draw Modes
 
@@ -866,7 +865,7 @@ This parameter defines how a layer's content will be cropped, centered, rotated,
 | 7 | Draw thru Stencil + Light | as above w/ lighting |
 | 8 | Draw onto Stencil | this layer's texture is drawn where stencil is not cut |
 | 9 | Draw onto Stencil + Light | as above w/ lighting |
-| 14 | Opacity fades to Black | Opacity on layer fades to black rather than transparent |
+| 14 | Opacity fades to Black | opacity on layer fades to black rather than transparent |
 
 ###Pixel Mapping Group Control Modes
 
