@@ -998,7 +998,6 @@ This parameter defines how a layer's content will be cropped, centered, rotated,
 | 5 | Exclusion | underlying colors are inverted where layer color is lighter; layer’s colors are then added to underlying colors (blacks appear transparent) |
 | 6 | Invert Subtractive | underlying colors are subtracted from layer’s colors (blacks appear opaque) |
 | 7 | Invert Additive | layer’s colors are inverted and are added to inverse of underlying colors (blacks appear transparent) |
-| 8 | Layer Fade to Black | when reducing layer's opacity to zero, the layer turns black and stays opaque, rather than becoming transparent |
 
 ###Draw Modes
 
@@ -1014,7 +1013,7 @@ This parameter defines how a layer's content will be cropped, centered, rotated,
 | 7 | Draw thru Stencil + Light | as above w/ lighting |
 | 8 | Draw onto Stencil | this layer's texture is drawn where stencil is not cut |
 | 9 | Draw onto Stencil + Light | as above w/ lighting |
-| 14 | Opacity fades to Black | Opacity on layer fades to black rather than transparent |
+| 14 | Opacity fades to Black | opacity on layer fades to black rather than transparent |
 
 ###Pixel Mapping Group Control Modes
 
