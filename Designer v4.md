@@ -1,5 +1,5 @@
 # Mbox Designer v4.0 Mapping 
-As of September 19, 2016...
+As of October 13, 2016...
 
 ###Notes:
 * Mbox uses default values of 127 and 32767 for some parameters, rather than 128 and 32768.  Using incorrect default values will have a severe negative impact on operation!
