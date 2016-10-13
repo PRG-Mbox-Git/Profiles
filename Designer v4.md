@@ -458,6 +458,7 @@ As of September 19, 2016...
 ---|---|---|---|---|---
 | 10-19  | Output Stats HUD | Shows output size, refresh, rendering stats | n/a | n/a |
 | 20-29  | Performance HUD | Shows overall performance, playback, rendering, etc. | n/a | n/a |
+| 30-39  | Version HUD | Shows software revision, share name, user defined name | n/a | n/a |
 | 40-49  | Lights/Master/Shutter/Keystone HUD - Output 1 Control Input Universe A| | n/a | n/a |
 | 50-54  | Texture HUD - Layers 1-6, Output 1 Control Input Universe A| | n/a | n/a |
 | 55-59  | Texture HUD - Layer 7-12, Output 2 Control Input Universe B| | n/a | n/a |
