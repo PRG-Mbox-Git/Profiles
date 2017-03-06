@@ -182,11 +182,11 @@ Notes:
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
-| 1  | 1 | Intensity | 0 | N | |
+| 1  | 1 | Intensity | 255 | N | |
 | 2 | 1 | Red  | 255 | N | |
 | 3 | 1 | Green  | 255 | N | |
 | 4 | 1 | Blue  | 255 | N | |
-| 5 | 1 | Ambience  | 0 | N | |
+| 5 | 1 | Ambience  | 255 | N | |
 | 6 | 2 | Horizontal Bearing  | 32767 | N | |
 | 8 | 2 | Vertical Bearing  | 32767 | N | |
 | | **9**  | **TOTAL DMX CHANNELS** | | | |
