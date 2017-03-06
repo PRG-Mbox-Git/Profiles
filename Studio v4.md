@@ -1,5 +1,5 @@
-#Mbox Studio v4.0 Mapping
-As of October 13, 2016
+#Mbox Studio v4.1 Mapping
+As of March 6, 2017
 
 Notes:
 * Mbox uses default values of 127 and 32767 for some parameters, rather than 128 and 32768.  Using incorrect default values will have a severe negative impact on operation!
@@ -476,6 +476,14 @@ Notes:
 | 202 | Syphon Input 2 |
 | 203 | Syphon Input 3 |
 | 204 | Syphon Input 4 |
+| 231 | CG Color Black |
+| 232 | CG Color White |
+| 233 | CG Color Red |
+| 234 | CG Color Green |
+| 235 | CG Color Blue |
+| 236 | CG Color Cyan |
+| 237 | CG Color Magenta |
+| 238 | CG Color Yellow |
 | 241  | Video Input 1 |
 | 242  | Video Input 2 |
 | 243  | Video Input 3 |
@@ -626,7 +634,8 @@ Notes:
 | 87-89 | Reserved | n/a | | | | | |
 | 90 | Mask from File | creates mask using external file w/ alpha | mixer | file # | flip mode 0-7 | | |
 | 91 | Matte from Layer | creates alpha matte using selected layer | mixer | 1 - 24 = layer w/o FX, 101 - 124 = layer w/ FX | mode <sup>1</sup> | | |
-| 92-95 | Reserved | n/a | | | | | |
+| 92 | UV Map from Layer | uses red/green to generate texture coordinates for uv mapping image | mode<sup>2</sup> | layer | distort amount (mode 0) | | |
+| 93-95 | Reserved | n/a | | | | | |
 | 96 | Distortion - Bump | bump distortion | radius | scale | x position | y position | |
 | 97 | Distortion - Linear Bump | linear bump distortion | radius | angle | scale | x position | y position |
 | 98 | Distortion - Hole | hole distortion | radius | x position | y position | | |
@@ -690,7 +699,7 @@ Notes:
 | 173 | Duotone - Hue&Saturation | duotone effect using H+S selection | threshold | hue 1 | saturation 1 | hue 2 | saturation 2 |
 | 174 | Channel Shift | separates RGB channels | mixer | horizontal offset | vertical offset | | |
 | 175 | ASCII Art | classic ASCII art effect | mixer | scale | saturation | | |
-| 176 | MetaImage | uses plugin image<sup>2</sup> to replace sampled areas in source image | mixer | file | scale | saturation | |
+| 176 | MetaImage | uses plugin image<sup>3</sup> to replace sampled areas in source image | mixer | file | scale | saturation | |
 | 177 | Drop Shadow 1 | drop shadow effect  | intensity | softness | x offset | y offset | |
 | 178 | Drop Shadow 2 | drop shadow effect | intensity | offset | | | |
 | 179 | Roll - Down | vertical roll | mixer | speed | pause | | |
@@ -718,24 +727,40 @@ Notes:
 | 231 | Spin | Spins objects | Z Spin: 0=Home, 1-126=Spin Rev, 127=Stop, 128-255=SpinFwd | X Spin: same as Z | Y Spin: same as Z | | |
 
 >**Notes:**
->1) Mode info for Effect 91 = Matte From Layer
-
->| Value | Description |
-> ---|---
->| 0 | Luma |
->| 1 | Luma Invert |
->| 2 | Red |
->| 3 | Red Invert |
->| 4 | Green |
->| 5 | Green Invert |
->| 6 | Blue |
->| 7 | Blue Invert |
->| 8 | Alpha |
->| 9 | Alpha Invert |
+> 1) Mode info for Effect 91 = Matte From Layer
 >
-> 2) Plugin image (PNG or JPG) for the 176 MetaImage effect must be located in /Mbox/plugins/images/masks and must have an 8-bit index number.  File should be 900x75 pixels, with twelve 75x75 square areas in dark to light progression left to right.
-
-
+> | Value | Description |
+> ---|---
+> | 0 | Luma |
+> | 1 | Luma Invert |
+> | 2 | Red |
+> | 3 | Red Invert |
+> | 4 | Green |
+> | 5 | Green Invert |
+> | 6 | Blue |
+> | 7 | Blue Invert |
+> | 8 | Alpha |
+> | 9 | Alpha Invert |
+>
+> 2) Mode info for Effect 92 = UV Map From Layer
+>
+> | Value | Description |
+> ---|---
+> | 0 | UV Distortion |
+> | 1 | 8/16 bit RG No Flip |
+> | 2 | 8/16 bit RG H Flip |
+> | 3 | 8/16 bit RG V Flip |
+> | 4 | 8/16 bit RG HV Flip |
+> | 5 | 12 bit RG No Flip |
+> | 6 | 12 bit RG H Flip |
+> | 7 | 12 bit RG V Flip |
+> | 8 | 12 bit RG HV Flip |
+> | 9 | 16 bit RG+BA No Flip |
+> | 10 | 16 bit RG+BA H Flip |
+> | 11 | 16 bit RG+BA V Flip |
+> | 12 | 16 bit RG+BA HV Flip |
+>
+> 3) Plugin image (PNG or JPG) for the 176 MetaImage effect must be located in /Mbox/plugins/images/masks and must have an 8-bit index number.  File should > be 900x75 pixels, with twelve 75x75 square areas in dark to light progression left to right.
 ###Transitions
 
 |Value| Transition |  Description |
@@ -818,6 +843,8 @@ This parameter defines how a layer's content will be cropped, centered, rotated,
 | 6 | Center, Vertical Fit, Crop | V | Y | Y | N | content center is placed in center of Mix, scale-to-fit mix vertically, no rotation, crops to mix boundary |
 | 7 | Center, Horizontal & Vertical Fit, No crop | HV | Y | N | N | content center is placed in center of Mix, scale-to-fit mix horizontally & vertically, no rotation, NO CROP to mix boundary |
 | 8 | Center, Horizontal & Vertical Fit, Crop | HV | Y | Y | N | content center is placed in center of Mix, scale-to-fit mix horizontally & vertically, no rotation, crops to mix boundary |
+| 9 | Center, Best Fit, No Crop | B | Y | N | N | content center is placed in center of Mix, scale-to-fit mix horizontally or vertically, no rotation, NO CROP to mix boundary |
+| 10 | Center, Best Fit, Crop | B | Y | Y | N | content center is placed in center of Mix, scale-to-fit mix horizontally or vertically, no rotation, crops to mix boundary |
 | 11 | Center, Rotate, No crop | N | Y | N | Y | content center is placed in center of Mix, no scale-to-fit, rotated to match mix rotation, NO CROP to mix boundary |
 | 12 | Center, Rotate, Crop | N | Y | Y | Y | content center is placed in center of Mix, no scale-to-fit, rotated to match mix rotation, crops to mix boundary |
 | 13 | Center, Horizontal Fit, Rotate, No crop | H | Y | N | Y | content center is placed in center of Mix, scale-to-fit mix horizontally, rotated to match mix rotation, NO CROP to mix boundary |
@@ -826,18 +853,24 @@ This parameter defines how a layer's content will be cropped, centered, rotated,
 | 16 | Center, Vertical Fit, Rotate, Crop | V | Y | Y | Y | content center is placed in center of Mix, scale-to-fit mix vertically, rotated to match mix rotation, crops to mix boundary |
 | 17 | Center, Horizontal & Vertical Fit, Rotate, No crop | HV | Y | N | Y | content center is placed in center of Mix, scale-to-fit mix horizontally & vertically, rotated to match mix rotation, NO CROP to mix boundary |
 | 18 | Center, Horizontal & Vertical Fit, Rotate, Crop | HV | Y | Y | Y | content center is placed in center of Mix, scale-to-fit mix horizontally & vertically, rotated to match mix rotation, crops to mix boundary |
+| 19 | Center, Best Fit, Rotate | B | Y | N | Y | content center is placed in center of Mix, scale-to-fit mix horizontally or vertically, rotated to match mix rotation, NO CROP to mix boundary |
+| 20 | Center, Best Fit, Rotate, Crop | B | Y | Y | Y | content center is placed in center of Mix, scale-to-fit mix horizontally or vertically, rotated to match mix rotation, crops to mix boundary |
 | 21 | Horizontal Fit, No crop | H | N | N | N | content is not centered in Mix, scale-to-fit mix horizontally, no rotation, NO CROP to mix boundary |
 | 22 | Horizontal Fit, Crop | H | N | Y | N | content is not centered in Mix, scale-to-fit mix horizontally, no rotation, crops to mix boundary |
 | 23 | Vertical Fit, No crop | V | N | N | N | content is not centered in Mix, scale-to-fit mix vertically, no rotation, NO CROP to mix boundary |
 | 24 | Vertical Fit, Crop | V | N | Y | N | content is not centered in Mix, scale-to-fit mix vertically, no rotation, crops to mix boundary |
 | 25 | Horizontal & Vertical Fit, No crop | HV | N | N | N | content is not centered in Mix, scale-to-fit mix horizontally & vertically, no rotation, NO CROP to mix boundary |
 | 26 | Horizontal & Vertical Fit, Crop | HV | N | Y | N | content is not centered in Mix, scale-to-fit mix horizontally & vertically, no rotation, crops to mix boundary |
+| 27 | Best Fit, No Crop | B | N | N | N | content is not centered in Mix, scale-to-fit mix horizontally or vertically, no rotation, NO CROP to mix boundary |
+| 28 | Best Fit, Crop | B | N | Y | N | content is not centered in Mix, scale-to-fit mix horizontally or vertically, no rotation, crops to mix boundary |
 | 31 | Horizontal Fit, Rotate, No crop | H | N | N | Y | content is not centered in Mix, scale-to-fit mix horizontally, rotated to match mix rotation, NO CROP to mix boundary |
 | 32 | Horizontal Fit, Rotate, Crop | H | N | Y | Y | content is not centered in Mix, scale-to-fit mix horizontally, rotated to match mix rotation, crops to mix boundary |
 | 33 | Vertical Fit, Rotate, No crop | V | N | N | Y | content is not centered in Mix, scale-to-fit mix vertically, rotated to match mix rotation, NO CROP to mix boundary |
 | 34 | Vertical Fit, Rotate, Crop | V | N | Y | Y | content is not centered in Mix, scale-to-fit mix vertically, rotated to match mix rotation, crops to mix boundary |
 | 35 | Horizontal & Vertical Fit, Rotate, No crop | HV | N | N | Y | content is not centered in Mix, scale-to-fit mix horizontally & vertically, rotated to match mix rotation, NO CROP to mix boundary |
 | 36 | Horizontal & Vertical Fit, Rotate, Crop | HV | N | Y | Y | content is not centered in Mix, scale-to-fit mix horizontally & vertically, rotated to match mix rotation, crops to mix boundary |
+| 37 | Best Fit, Rotate, No Crop | B | N | N | Y | content is not centered in Mix, scale-to-fit mix horizontally or vertically, rotated to match mix rotation, NO CROP to mix boundary |
+| 38 | Best Fit, Rotate, Crop | B | N | Y | Y | content is not centered in Mix, scale-to-fit mix horizontally or vertically, rotated to match mix rotation, crops to mix boundary |
 
 ###Blend Modes
 
