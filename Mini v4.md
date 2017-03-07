@@ -1,5 +1,5 @@
-#Mbox Mini v4.0 Mapping
-As of October 13, 2016
+#Mbox Mini v4.1 Mapping
+As of March 6, 2017
 
 ###Notes:
 * Mbox uses default values of 127 and 32767 for some parameters, rather than 128 and 32768.  Using incorrect default values will have a severe negative impact on operation!
