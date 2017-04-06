@@ -27,7 +27,6 @@ As of March 6, 2017
 >   * [Pixel Mapping Group Control](#pixel-mapping-group-control)
 > * [**Channel Definitions**](#channel-definitions)
 >   * [Global Master Control Channel](#global-master-control-channel)
->   * [Keystone Blend Curves](#keystone-blend-curves)
 >   * [Video and Utility Inputs](#video-and-utility-inputs)
 >   * [Play Modes](#play-modes)
 >   * [Play Speed](#play-speed)
