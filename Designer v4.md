@@ -1,7 +1,7 @@
 # Mbox Designer v4.1 Mapping 
 As of March 6, 2017...
 
-###Notes:
+### Notes:
 * Mbox uses default values of 127 and 32767 for some parameters, rather than 128 and 32768.  Using incorrect default values will have a severe negative impact on operation!
 * All 16-bit values are in big-endian format. For example, the value 23 would be presented as 0 in the first channel and 23 in the second channel.
 * Mbox v4 eliminates the prior idea of single, pan wide, pan dual, and dual independent output setup.  For v4 you add the number of layers desired and then add outputs as desired.  Outputs may be separate or panoramic in some combination with other layers.  Each output can have its own Output Master fixture. Two or more outputs can be linked together as panoramic outputs if desired.
@@ -48,7 +48,7 @@ As of March 6, 2017...
 
 ## Summary - Standard Configuration (Quick Patch)
 
-###Masters and Lights
+### Masters and Lights
 *Standard Universe Offset +0*
 
 | Start  | Size  | Type  |
@@ -73,7 +73,7 @@ As of March 6, 2017...
 
 >* A maximum of four (4) Output Masters will fit on the first universe.  If more than four are required, additional universes must be patched.  Output Masters 5-9 would be on the second universe, and would move the Layers up to the next consecutive universe.  Adding more Output Masters beyond 9 would move the Layers up again, and so on...
 
-###Layers 1-6
+### Layers 1-6
 *Standard Universe Offset +1*
 
 | Start  | Size  | Type  |
@@ -86,7 +86,7 @@ As of March 6, 2017...
 | 421 | 81 | Layer 6 |
 | | *486*  | **TOTAL DMX CHANNELS** |
 
-###Layers 7-12
+### Layers 7-12
 *Standard Universe Offset +2*
 
 *See Previous Universe*
@@ -95,7 +95,7 @@ As of March 6, 2017...
 ---|---|---
 || *486*  | **TOTAL DMX CHANNELS** |
 
-###Layers 13-18
+### Layers 13-18
 *Standard Universe Offset +3*
 
 *See Previous Universe*
@@ -104,7 +104,7 @@ As of March 6, 2017...
 ---|---|---
 || *486*  | **TOTAL DMX CHANNELS** |
 
-###Layers 19-24
+### Layers 19-24
 *Standard Universe Offset +4*
 
 *See Previous Universe*
@@ -113,9 +113,9 @@ As of March 6, 2017...
 ---|---|---
 || *486*  | **TOTAL DMX CHANNELS** |
 
-##Summary - Custom Configuration (Custom Patch)
+## Summary - Custom Configuration (Custom Patch)
 
-###Masters and Light
+### Masters and Light
 *Universe Offset +0*
 
 | Start  | Size  | Type  | Required/Optional |
@@ -136,10 +136,10 @@ As of March 6, 2017...
 | | **143**  | **TOTAL DMX CHANNELS** |
 
 >**Notes:**
-* Additional Output Masters may be added.  Each Output Master may have different options enabled - effects, camera, geometry, keystone, shutter.
-* A maximum of four (4) Output Masters will fit on the first universe.  If more than four are required, additional universes must be patched.  Output Masters 5-9 would be on the second universe, and would move the Layers up to the next consecutive universe.  Adding more Output Masters beyond 9 would move the Layers up again, and so on...
+>* Additional Output Masters may be added.  Each Output Master may have different options enabled - effects, camera, geometry, keystone, shutter.
+>* A maximum of four (4) Output Masters will fit on the first universe.  If more than four are required, additional universes must be patched.  Output Masters 5-9 would be on the second universe, and would move the Layers up to the next consecutive universe.  Adding more Output Masters beyond 9 would move the Layers up again, and so on...
 
-###Output Master 5-8
+### Output Master 5-8
 *Universe Offset +1*
 
 | Start  | Size  | Type  | Required/Optional |
@@ -150,7 +150,7 @@ As of March 6, 2017...
 | 280 | 93 | Output Master 8 |
 
 
-###Layers 1-6
+### Layers 1-6
 *Universe Offset +2*
 
 *Types listed as Required must be patched for the layer to work.  Optional types can be enabled/disabled for every layer, but not on a per-layer basis.*
@@ -201,7 +201,7 @@ As of March 6, 2017...
 | +78 | 4 | Layer 6 Timecode | Optional |
 | | *486*  | **TOTAL DMX CHANNELS** |
 
-###Layers 7-12
+### Layers 7-12
 *Universe Offset +3*
 
 *See Previous Universe*
@@ -210,7 +210,7 @@ As of March 6, 2017...
 ---|---|---
 | | **486**  | **TOTAL DMX CHANNELS** |
 
-###Layers 13-18
+### Layers 13-18
 *Universe Offset +4*
 
 *See Previous Universe*
@@ -219,7 +219,7 @@ As of March 6, 2017...
 ---|---|---
 | | **486**  | **TOTAL DMX CHANNELS** |
 
-###Layers 19-24
+### Layers 19-24
 *Universe Offset +5*
 
 *See Previous Universe*
@@ -230,7 +230,7 @@ As of March 6, 2017...
 
 ## Fixture Descriptions
 
-###Pro Light
+### Pro Light
 *Optional, up to 5 allowed*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -244,7 +244,7 @@ As of March 6, 2017...
 | 8 | 2 | Vertical Bearing  | 32767 | N | |
 | | *9*  | **TOTAL DMX CHANNELS** | | | |
 
-###Global Master
+### Global Master
 *Required, 1 allowed*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -256,7 +256,7 @@ As of March 6, 2017...
 | 5 | 1 | Global Volume | 255 | N | Master level for all audio |
 | | **5**  | **TOTAL DMX CHANNELS** | | | |
 
-###Output Master Base
+### Output Master Base
 *Required for each output, quantity variable depending on number of outputs, minimum of 1*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -269,7 +269,7 @@ As of March 6, 2017...
 | 6 | 1 | Contrast | 127 | N | |
 | | **6**  | **TOTAL DMX CHANNELS** | | | |
 
-###Output Master Effect
+### Output Master Effect
 *Optional, up to 2 per Output Master*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -282,7 +282,7 @@ As of March 6, 2017...
 | 6 | 1 | Master Effect Modifier 5 | 0 | N | |
 | | **6**  | **TOTAL DMX CHANNELS** | | | |
 
-###Output Master Camera
+### Output Master Camera
 *Optional, 1 per Output Master*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -298,7 +298,7 @@ As of March 6, 2017...
 | 15 | 2 | Roll  | 32767  | N | Camera rotation around lens axis |
 | | **16**  | **TOTAL DMX CHANNELS** | | | |
 
-###Output Master Geometry
+### Output Master Geometry
 *Optional, 1 per Output Master*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -311,7 +311,7 @@ As of March 6, 2017...
 | 11 | 2 | Mix Offset Y  | 32767  | N | |
 | | **12**  | **TOTAL DMX CHANNELS** | | | |
 
-###Output Master Keystone
+### Output Master Keystone
 *Optional, 1 per Output Master*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -334,7 +334,7 @@ As of March 6, 2017...
 | 25 | 2 | Linearity Y | 32767 | N | Increasing value smooshes the image to the top, decreasing smooshes to the bottom |
 | | **26***  | **TOTAL DMX CHANNELS** | | | |
 
-###Output Master Shutter
+### Output Master Shutter
 *Optional, 1 per Output Master*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -359,7 +359,7 @@ As of March 6, 2017...
 | 21 | 1 | Shutter Damping  | 0 | N |  Speed control for shutter movement - 1/30th sec per step |
 | | **21**  | **TOTAL DMX CHANNELS** | | | |
 
-###Layer Base
+### Layer Base
 *Required, Up to 24 per server*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -406,7 +406,7 @@ As of March 6, 2017...
 | 52 | 1 | Image Remap | 0 |**Y**| Selects which Image Remapping configuration the layer uses |
 | | **52**  | **TOTAL DMX CHANNELS** | | | |
 
-###Layer FX
+### Layer FX
 *Optional, up to 4 per Layer*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -419,7 +419,7 @@ As of March 6, 2017...
 | 6 | 1 | Layer Effect Modifier 5 | 0 | N | |
 | | **6**  | **TOTAL DMX CHANNELS** | | | |
 
-###Layer Volume
+### Layer Volume
 *Optional, 1 per Layer*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -427,7 +427,7 @@ As of March 6, 2017...
 | 1 | 1 | Layer Volume Control | 255 | N | |
 | | **1**  | **TOTAL DMX CHANNELS** | | | |
 
-###Layer DMX Timecode
+### Layer DMX Timecode
 *Optional, 1 per Layer*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -438,7 +438,7 @@ As of March 6, 2017...
 | 4 | 1 | Frames  | 0 | N | 0-29 > Setting value beyond its normal range will invalidate all TC DMX controls for the layer |
 | | **4** | **TOTAL DMX CHANNELS** | | | |
 
-###Pixel Mapping Group Control
+### Pixel Mapping Group Control
 *Optional, for controlling pixel mapping groups - add one per Pixel Mapping Group, 2000 max*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -452,10 +452,10 @@ As of March 6, 2017...
 
 ## Channel Definitions
 
-###Global Master Control Channel
+### Global Master Control Channel
 
 |Value|Command| Notes |Macro Trigger Action|Master Control Selector|
----|---|---|---|---|---
+---|---|---|---|---
 | 10-19  | Output Stats HUD | Shows output size, refresh, rendering stats | n/a | n/a |
 | 20-29  | Performance HUD | Shows overall performance, playback, rendering, etc. | n/a | n/a |
 | 30-39  | Version HUD | Shows software revision, share name, user defined name | n/a | n/a |
@@ -500,7 +500,7 @@ As of March 6, 2017...
 | 253  | Restart Mbox Application | | Hold 3-sec then 0 | n/a |
 | 254  | Restart Daemon Application | | Hold 3-sec then 0 | n/a |
 
-###Shutter Shapes
+### Shutter Shapes
 
 |Value| Shape | Notes |
 ---|---|---
@@ -510,7 +510,7 @@ As of March 6, 2017...
 | 30-39  | Iris Mode | A round Iris, scale is magnified to enclose the screen. No other controls. |
 | 40-49  | "Blob" Mode | A Bezier curve is drawn touching the midpoints of the rectangle formed by Leko Mode. |
 
-###Keystone Blend Curves
+### Keystone Blend Curves
 
 |Value| Mode | Blend Curve | Grid Overlay Y/N | Controls |
 ---|---|---|---|---
@@ -528,7 +528,7 @@ As of March 6, 2017...
 >* A Keystone Curve value of 0 enables the advanced  toolset that is accessed through the UI in the Mbox or Mbox Remote Application
 >* When the value is set to 0 settings  from the advanced toolset will negate the standard corner, edge-blend, and linearity controls, but not the Output Geometry controls.
 
-###Video and Utility Inputs
+### Video and Utility Inputs
 
 *Texture Folder 255 is reserved for special uses such as selecting video/syphon inputs or copying layers*
 
@@ -614,7 +614,7 @@ As of March 6, 2017...
 | 254 | CG Color Bars |
 | 255 | Null Image |
 
-###Play Modes
+### Play Modes
 
 |Value| Play Mode |
 ---|---
@@ -657,7 +657,7 @@ As of March 6, 2017...
 | 244  | Play out Mode - last 30 seconds |
 | 255  | Restart Movie from In Point |
 
-###Play Speed
+### Play Speed
 
 |Value| Play speed |
 ---|---
@@ -667,7 +667,7 @@ As of March 6, 2017...
 | 128  | Compensated speed - match output refresh rate (with +/- ~5% deviation) |
 | 129-255  | Increasing speeds from normal to 4x normal |
 
-###Sync Stream
+### Sync Stream
 
 |Value| Mode | Notes |
 ---|---|---
@@ -675,7 +675,7 @@ As of March 6, 2017...
 | 1-96 | Stream number | Can only output 32 streams |
 
 
-###Aspect Control
+### Aspect Control
 
 |Value| Mode |
 ---|---
@@ -684,12 +684,12 @@ As of March 6, 2017...
 | 127 | 1:1 |
 | 128-255 | Ratios scaling from 1:1 to 4:1 |
 
-###Frame Blending Control
+### Frame Blending Control
 
 0 = no frame blending (more accurately, blend time = 0)
 1 - 255 = variable frame blend time, as a proportion of the frame time. This is a square-law control, and 50 blend time is achieved at DMX 210, 25 blend time at DMX 165
 
-###Combined Effects
+### Combined Effects
 
 >**Notes:**
 > * The Combined Effects for Mbox Designer v4.0's Layer fixtures include all effects listed below.
@@ -895,7 +895,7 @@ As of March 6, 2017...
 >
 > 3) Plugin image (PNG or JPG) for the 176 MetaImage effect must be located in /Mbox/plugins/images/masks and must have an 8-bit index number.  File should > be 900x75 pixels, with twelve 75x75 square areas in dark to light progression left to right.
 
-###Transitions
+### Transitions
 
 |Value| Transition |  Description |
 ---|---|---
@@ -962,7 +962,7 @@ As of March 6, 2017...
 | 111-120  | Custom Soft-edge wipe 1-10 | soft-edge wipe using custom grayscale file |
 | 255  | Object Dissolve | fade out on current object, fade in on new object |
 
-###Object Transitions
+### Object Transitions
 
 |Value|  Transition  |  Description |
 ---|---|---
@@ -978,7 +978,7 @@ As of March 6, 2017...
 | 9  | Newsflash 1 | objects spin in/out both in same direction |
 | 10  | Newsflash 2 | as above but objects spin in opposite directions |
 
-###Layer Mix Modes
+### Layer Mix Modes
 
 This parameter defines how a layer's content will be cropped, centered, rotated, and/or scaled when assigned to a mix.
 
@@ -1022,7 +1022,7 @@ This parameter defines how a layer's content will be cropped, centered, rotated,
 | 37 | Best Fit, Rotate, No Crop | B | N | N | Y | content is not centered in Mix, scale-to-fit mix horizontally or vertically, rotated to match mix rotation, NO CROP to mix boundary |
 | 38 | Best Fit, Rotate, Crop | B | N | Y | Y | content is not centered in Mix, scale-to-fit mix horizontally or vertically, rotated to match mix rotation, crops to mix boundary |
 
-###Blend Modes
+### Blend Modes
 
 |Value | Blend Mode | Description |
 ---|---|---
@@ -1035,7 +1035,7 @@ This parameter defines how a layer's content will be cropped, centered, rotated,
 | 6 | Invert Subtractive | underlying colors are subtracted from layer’s colors (blacks appear opaque) |
 | 7 | Invert Additive | layer’s colors are inverted and are added to inverse of underlying colors (blacks appear transparent) |
 
-###Draw Modes
+### Draw Modes
 
 |Value | Draw Mode | Description |
 ---|---|---
@@ -1051,7 +1051,7 @@ This parameter defines how a layer's content will be cropped, centered, rotated,
 | 9 | Draw onto Stencil + Light | as above w/ lighting |
 | 14 | Opacity fades to Black | opacity on layer fades to black rather than transparent |
 
-###Pixel Mapping Group Control Modes
+### Pixel Mapping Group Control Modes
 
 The modes listed below are used with the Pixel Mapping Group Control fixture.  The mode selected affects how the other controls and/or merge input data will affect the Mbox output.  The use of HTP modes with CMY color inversion (modes 107 & 108) is not recommended.
 
