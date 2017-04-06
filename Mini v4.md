@@ -60,7 +60,7 @@ As of March 6, 2017
 | | **45**  | **TOTAL DMX CHANNELS** |
 
 >**Notes:**
-* Additional Outputs may be added and use 40 channels each if all sub-fixtures are included.
+>* Additional Outputs may be added and use 40 channels each if all sub-fixtures are included.
 Warning: The maximum number of Output Masters, six (6), will fit on the first universe, but if more than four Output Masters are used, the sixth playback layer must be moved to a second universe!
 
 ### Layers 1-6
