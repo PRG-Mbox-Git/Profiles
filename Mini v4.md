@@ -1,7 +1,7 @@
-#Mbox Mini v4.1 Mapping
+# Mbox Mini v4.1 Mapping
 As of March 6, 2017
 
-###Notes:
+### Notes:
 * Mbox uses default values of 127 and 32767 for some parameters, rather than 128 and 32768.  Using incorrect default values will have a severe negative impact on operation!
 * Mbox v4 eliminates the prior idea of single, pan wide, pan dual, and dual independent output setup.  For v4 you add the number of layers desired and then add outputs as desired.  Outputs may be separate or panoramic in some combination with other layers.  Each output can have its own Output Master fixture. Two or more outputs can be linked together as panoramic outputs if desired.
 * Mbox Mini v4 does not have controllable Lighting fixtures.  It has a fixed lighting setup, similar to v3.x.  
@@ -45,9 +45,9 @@ As of March 6, 2017
 >   * [Draw Modes](#draw-modes)
 >   * [Pixel Mapping Group Control Modes](#pixel-mapping-group-control-modes)
 
-##Summary - Standard Configuration (Quick Patch)
+## Summary - Standard Configuration (Quick Patch)
 
-###Masters
+### Masters
 *Universe Offset +0*
 
 | Start  | Size  | Type  |
@@ -63,7 +63,7 @@ As of March 6, 2017
 * Additional Outputs may be added and use 40 channels each if all sub-fixtures are included.
 Warning: The maximum number of Output Masters, six (6), will fit on the first universe, but if more than four Output Masters are used, the sixth playback layer must be moved to a second universe!
 
-###Layers 1-6
+### Layers 1-6
 *Universe Offset +0 (unless more than four Output Masters are used)*
 
 | Start  | Size  | Type  |
@@ -76,9 +76,9 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 261 | 52 | Layer 6 |
 | | **312**  | **TOTAL DMX CHANNELS** |
 
-##Summary - Custom Configuration (Custom Patch)
+## Summary - Custom Configuration (Custom Patch)
 
-###Masters
+### Masters
 *Universe Offset +0*
 
 | Start  | Size  | Type  | Required/Optional |
@@ -93,7 +93,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 >**Note:**
 * Additional Output Masters may be added.  Each Output Master may have different options enabled - effect, keystone, shutter.
 
-###Layers 1-6
+### Layers 1-6
 *Universe Offset +0 (unless more than four Output Masters are used)*
 
 *Types listed as Required must be patched for the layer to work.  Optional types can be enabled/disabled for every layer, but not on a per-layer basis.*
@@ -126,9 +126,9 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | +49 | 4 | Layer 4 Timecode | Optional |
 | | **312**  | **TOTAL DMX CHANNELS** |
 
-#Fixture Descriptions
+# Fixture Descriptions
 
-###Global Master
+### Global Master
 *(Required, 1 allowed)*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -140,7 +140,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 5 | 1 | Global Volume | 255 | N | Master level for all audio |
 | | **5**  | **TOTAL DMX CHANNELS** | | | |
 
-###Output Master Base
+### Output Master Base
 *Required, quantity variable*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -153,7 +153,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 6 | 1 | Contrast | 127 | N | |
 | | *6*  | **TOTAL DMX CHANNELS** | | | |
 
-###Output Master Effect
+### Output Master Effect
 *Optional, 1 per Output Master*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -166,7 +166,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 6 | 1 | Master Effect Modifier 1e | 0 | N | |
 | | **6**  | **TOTAL DMX CHANNELS** | | | |
 
-###Output Master Keystone
+### Output Master Keystone
 *(Optional, 1 per Output Master)*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -181,7 +181,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 15 | 2 | Corner 4 - Y  | 32767 | N | |
 | | **16**  | **TOTAL DMX CHANNELS** | | | |
 
-###Output Master Shutter
+### Output Master Shutter
 *Optional, 1 per Output Master*
 >**Note:**
 >* The shutters in Mini are locked into the "ML" shape mode that Designer and Studio can use.
@@ -202,7 +202,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 12 | 1 | Shutter 4b  | 0 | N | |
 | | **12**  | **TOTAL DMX CHANNELS** | | | |
 
-###Layer Base
+### Layer Base
 *Required, Up to 6 per server*
 
 
@@ -241,7 +241,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 41 | 1 | Image Remap | 0 | **Y** | Selects which Image Remapping configuration the layer uses |
 | | **41**  | **TOTAL DMX CHANNELS** | | | |
 
-###Layer FX
+### Layer FX
 *(Optional,  1 per Layer)*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -254,7 +254,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 6 | 1 | Layer Effect Modifier e | 0 | N | |
 | | **6**  | **TOTAL DMX CHANNELS** | | | |
 
-###Layer Volume
+### Layer Volume
 *(Optional, 1 per Layer)*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -262,7 +262,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 1 | 1 | Layer Volume Control | 255 | N | |
 | | **1**  | **TOTAL DMX CHANNELS** | | | |
 
-###Layer DMX Timecode
+### Layer DMX Timecode
 *(Optional, 1 per Layer)*
 
 | Channel | Size | Function | Default | Snap | Notes |
@@ -273,7 +273,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 4 | 1 | Frames  | 0 | N | 0-29 > Setting value beyond its normal range will invalidate all TC DMX controls for the layer |
 | | **4**  | **TOTAL DMX CHANNELS** | | | |
 
-##Pixel Mapping Group Control
+## Pixel Mapping Group Control
 
 *Optional, for controlling pixel mapping groups - add one per Pixel Mapping Group, 2000 max)*
 
@@ -286,12 +286,12 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 5 | 1 | Blue/Yellow | 255/0 | N | Used as Blue with RGB control modes, and as Yellow with CMY control modes |
 | | **5**  | **TOTAL DMX CHANNELS** | | | |
 
-##Channel Definitions
+## Channel Definitions
 
-###Global Master Control Channel
+### Global Master Control Channel
 
 |Value|Command| Notes |Macro Trigger Action|Master Control Selector|
----|---|---|---|---|---
+---|---|---|---|---
 | 10-19  | Output Stats HUD | Shows output size, refresh, rendering stats | n/a | n/a |
 | 20-29  | Performance HUD | Shows overall performance, playback, rendering, etc. | n/a | n/a |
 | 30-39  | Version HUD | Shows software revision, share name, user defined name | n/a | n/a |
@@ -333,7 +333,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 253  | Restart Mbox Application | | Hold 3-sec then 0 | n/a |
 | 254  | Restart Daemon Application | | Hold 3-sec then 0 | n/a |
 
-###Video and Utility Inputs
+### Video and Utility Inputs
 *Texture Folder 255 is reserved for special uses such as selecting video/syphon inputs or copying layers:*
 
 | Texture Value | Input |
@@ -366,7 +366,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 254 | CG Color Bars |
 | 255 | Null Image |
 
-###Play Modes
+### Play Modes
 
 |Value| Play Mode |
 ---|---
@@ -409,7 +409,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 244  | Play out Mode - last 30 seconds |
 | 255  | Restart Movie from In Point |
 
-###Play Speed
+### Play Speed
 
 |Value| Play speed |
 ---|---
@@ -419,19 +419,19 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 128  | Compensated speed - match output refresh rate (with +/- ~5% deviation) |
 | 129-255  | Increasing speeds from normal to 4x normal |
 
-###Sync Stream
+### Sync Stream
 
 |Value| Mode | Notes |
 ---|---|---
 | 0 | Layer to Layer Stream (default) | |
 | 1-96 | Stream number | Can only output 8 streams |
 
-###Frame Blending Control
+### Frame Blending Control
 
 0 = no frame blending (more accurately, blend time = 0)
 1 - 255 = variable frame blend time, as a proportion of the frame time. This is a square-law control, and 50 blend time is achieved at DMX 210, 25 blend time at DMX 165
 
-##Combined Effects
+## Combined Effects
 >**Notes:**
 >* The Combined Effects for Mbox Studio v4.0's Layer fixtures include all effects listed below.
 >* The Output Master fixture is only able to use Effects 1 - 200
@@ -638,7 +638,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 > 3) Plugin image (PNG or JPG) for the 176 MetaImage effect must be located in /Mbox/plugins/images/masks and must have an 8-bit index number.  File should > be 900x75 pixels, with twelve 75x75 square areas in dark to light progression left to right.
 
 
-###Transitions
+### Transitions
 
 |Value| Transition |  Description |
 ---|---|---
@@ -705,7 +705,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 111-120  | Custom Soft-edge wipe 1-10 | soft-edge wipe using custom grayscale file |
 | 255  | Object Dissolve | fade out on current object, fade in on new object |
 
-###Layer Mix Modes
+### Layer Mix Modes
 
 This parameter defines how a layer's content will be cropped, centered, rotated, and/or scaled when assigned to a mix.
 
@@ -749,7 +749,7 @@ This parameter defines how a layer's content will be cropped, centered, rotated,
 | 37 | Best Fit, Rotate, No Crop | B | N | N | Y | content is not centered in Mix, scale-to-fit mix horizontally or vertically, rotated to match mix rotation, NO CROP to mix boundary |
 | 38 | Best Fit, Rotate, Crop | B | N | Y | Y | content is not centered in Mix, scale-to-fit mix horizontally or vertically, rotated to match mix rotation, crops to mix boundary |
 
-###Blend Modes
+### Blend Modes
 
 |Value | Blend Mode | Description |
 ---|---|---
@@ -762,7 +762,7 @@ This parameter defines how a layer's content will be cropped, centered, rotated,
 | 6 | Invert Subtractive | underlying colors are subtracted from layer’s colors (blacks appear opaque) |
 | 7 | Invert Additive | layer’s colors are inverted and are added to inverse of underlying colors (blacks appear transparent) |
 
-##Draw Modes
+## Draw Modes
 
 |Value | Draw Mode | Description |
 ---|---|---
@@ -778,7 +778,7 @@ This parameter defines how a layer's content will be cropped, centered, rotated,
 | 9 | Draw onto Stencil + Light | as above w/ lighting |
 | 14 | Opacity fades to Black | opacity on layer fades to black rather than transparent |
 
-##Pixel Mapping Group Control Modes
+## Pixel Mapping Group Control Modes
 
 The modes listed below are used with the Pixel Mapping Group Control fixture.  The mode selected affects how the other controls and/or merge input data will affect the Mbox output.  The use of HTP modes with CMY color inversion (modes 107 & 108) is not recommended.
 
