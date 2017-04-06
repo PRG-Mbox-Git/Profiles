@@ -370,7 +370,7 @@ As of March 6, 2017...
 | 4 | 1 | Blue | 127 | N | Subtractive 0-126, Additive 128 - 255 |
 | 5 | 1 | Brightness | 127 | N | |
 | 6 | 1 | Contrast | 127 | N | |
-| 7 | 1 | Texture Folder  | 0 |**Y**| Folder 255; see [Video and Utility Inputs](video-and-utility-inputs) |
+| 7 | 1 | Texture Folder  | 0 |**Y**| Folder 255; see [Video and Utility Inputs](#video-and-utility-inputs) |
 | 8 | 1 | Texture File  | 0 |**Y**| |
 | 9 | 1 | Play Mode  | 0 |**Y**| see [Play Modes](#play-modes) |
 | 10 | 1 | Play Speed  | 127  | N | see [Play Speed](#play-speed) |
