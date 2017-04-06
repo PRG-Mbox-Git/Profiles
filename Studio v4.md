@@ -39,7 +39,6 @@ Notes:
 >   * [Frame Blending Control](#frame-blending-control)
 >   * [Combined Effects](#combined-effects)
 >   * [Transitions](#transitions)
->   * [Object Transitions](#object-transitions)
 >   * [Layer Mix Modes](#layer-mix-modes)
 >   * [Blend Modes](#blend-modes)
 >   * [Draw Modes](#draw-modes)
@@ -336,14 +335,16 @@ Notes:
 | 6 | 1 | Layer Effect Modifier 5 | 0 | N | |
 | | **6**  | **TOTAL DMX CHANNELS** | | | |
 
-### Layer Volume (Optional, 1 per Layer)
+### Layer Volume
+*(Optional, 1 per Layer)
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
 | 1 | 1 | Layer Volume Control | 255 | N | |
 | | **1**  | **TOTAL DMX CHANNELS** | | | |
 
-### Layer DMX Timecode (Optional, 1 per Layer)
+### Layer DMX Timecode
+*(Optional, 1 per Layer)
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
