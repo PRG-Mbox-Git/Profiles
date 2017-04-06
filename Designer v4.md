@@ -332,7 +332,7 @@ As of March 6, 2017...
 | 21 | 2 | Corner 4 - Y  | 32767 | N | Bottom Left Y - increasing value moves corner up, decreasing moves down |
 | 23 | 2 | Linearity X | 32767 | N | Increasing value smooshes the image to the right, decreasing smooshes to the left |
 | 25 | 2 | Linearity Y | 32767 | N | Increasing value smooshes the image to the top, decreasing smooshes to the bottom |
-| | **26***  | **TOTAL DMX CHANNELS** | | | |
+| | **26**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Output Master Shutter
 *Optional, 1 per Output Master*
