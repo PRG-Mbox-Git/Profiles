@@ -230,7 +230,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 | 35 | 2 | Y Rotation  | 32767  | N | |
 | 37 | 1 | Mix Select | 0 | **Y** | Selects which Mix the layer is assigned to |
 | 38 | 1 | Mix Center/Scale | 0 | **Y** | see [Layer Mix Modes](#layer-mix-modes) |
-| 39 | 1 | Layer Blend Mode/Draw Mode  | 0 | **Y** | see [Blend Modes](#blend-modes) |
+| 39 | 1 | Layer Blend Mode  | 0 | **Y** | see [Blend Modes](#blend-modes) |
 | 40 | 1 | Layer Draw Mode  | 0 | **Y** | see [Draw Modes](#draw-modes) |
 | 41 | 1 | Image Remap | 0 | **Y** | Selects which Image Remapping configuration the layer uses |
 | | **41**  | **TOTAL DMX CHANNELS** | | | |

@@ -15,8 +15,8 @@ Notes:
 > * [**Summary - Standard Configuration (Quick Patch)**](#summary---standard-configuration-quick-patch)
 > * [**Summary - Custom Configuration (Custom Patch)**](#summary---custom-configuration-custom-patch)
 > * [**Fixture Descriptions**](#fixture-descriptions)
->   * [Pro Light](#pro-light)
 >   * [Global Master](#global-master)
+>   * [Pro Light](#pro-light)
 >   * [Output Master Base](#output-master-base)
 >   * [Output Master Effect](#output-master-effect)
 >   * [Output Master Camera](#output-master-camera)
@@ -176,6 +176,18 @@ Notes:
 
 ## Fixture Descriptions
 
+### Global Master
+*Required, 1 allowed*
+
+| Channel | Size | Function | Default | Snap | Notes |
+---|---|---|---|---|---
+| 1 | 1 | Global Intensity | 255 | N | Overall dimming (in IO Module if applicable) |
+| 2 | 1 | Control | 0 | **Y** |  see [Global Master Control Channel](#global-master-control-channel)  |
+| 3 | 1 | Control Selector | 0 | **Y** | Modifier for Control macros |
+| 4 | 1 | Pixel Mapping Output Level | 255 | N | Master level for pixel-mapped outputs  |
+| 5 | 1 | Global Volume | 255 | N | Master level for all audio |
+| | **5**  | **TOTAL DMX CHANNELS** | | | |
+
 ### Pro Light
 *Optional, up to 5 allowed*
 
@@ -189,18 +201,6 @@ Notes:
 | 6 | 2 | Horizontal Bearing  | 32767 | N | |
 | 8 | 2 | Vertical Bearing  | 32767 | N | |
 | | **9**  | **TOTAL DMX CHANNELS** | | | |
-
-### Global Master
-*Required, 1 allowed*
-
-| Channel | Size | Function | Default | Snap | Notes |
----|---|---|---|---|---
-| 1 | 1 | Global Intensity | 255 | N | Overall dimming (in IO Module if applicable) |
-| 2 | 1 | Control | 0 | **Y** |  see [Global Master Control Channel](#global-master-control-channel)  |
-| 3 | 1 | Control Selector | 0 | **Y** | Modifier for Control macros |
-| 4 | 1 | Pixel Mapping Output Level | 255 | N | Master level for pixel-mapped outputs  |
-| 5 | 1 | Global Volume | 255 | N | Master level for all audio |
-| | **5**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Output Master Base
 *Required, quantity variable*
@@ -317,7 +317,7 @@ Notes:
 | 35 | 2 | Y Rotation  | 32767  | N | |
 | 37 | 1 | Mix Select | 0 | **Y** | Selects which Mix the layer is assigned to |
 | 38 | 1 | Mix Center/Scale | 0 | **Y** | see [Layer Mix Modes](#layer-mix-modes) |
-| 39 | 1 | Layer Blend Mode/Draw Mode  | 0 | **Y** | see [Blend Modes](#blend-modes) |
+| 39 | 1 | Layer Blend Mode  | 0 | **Y** | see [Blend Modes](#blend-modes) |
 | 40 | 1 | Layer Draw Mode  | 0 | **Y** | see [Draw Modes](#draw-modes) |
 | 41 | 1 | Image Remap | 0 | **Y** | Selects which Image Remapping configuration the layer uses |
 | | **41**  | **TOTAL DMX CHANNELS** | | | |

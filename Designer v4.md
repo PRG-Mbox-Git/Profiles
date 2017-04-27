@@ -1,4 +1,4 @@
-# Mbox Designer v4.1 Mapping 
+# Mbox Designer v4.1 Mapping
 As of March 6, 2017...
 
 ### Notes:
@@ -15,8 +15,8 @@ As of March 6, 2017...
 > * [**Summary - Standard Configuration (Quick Patch)**](#summary---standard-configuration-quick-patch)
 > * [**Summary - Custom Configuration (Custom Patch)**](#summary---custom-configuration-custom-patch)
 > * [**Fixture Descriptions**](#fixture-descriptions)
->   * [Pro Light](#pro-light)
 >   * [Global Master](#global-master)
+>   * [Pro Light](#pro-light)
 >   * [Output Master Base](#output-master-base)
 >   * [Output Master Effect](#output-master-effect)
 >   * [Output Master Camera](#output-master-camera)
@@ -230,6 +230,18 @@ As of March 6, 2017...
 
 ## Fixture Descriptions
 
+### Global Master
+*Required, 1 allowed*
+
+| Channel | Size | Function | Default | Snap | Notes |
+---|---|---|---|---|---
+| 1 | 1 | Global Intensity | 255 | N | Overall dimming (in IO Module if applicable) |
+| 2 | 1 | Control | 0 |**Y**|  see [Global Master Control Channel](#global-master-control-channel)  |
+| 3 | 1 | Control Selector | 0 |**Y**| Modifier for Control macros |
+| 4 | 1 | Pixel Mapping Output Level | 255 | N | Master level for pixel-mapped outputs  |
+| 5 | 1 | Global Volume | 255 | N | Master level for all audio |
+| | **5**  | **TOTAL DMX CHANNELS** | | | |
+
 ### Pro Light
 *Optional, up to 5 allowed*
 
@@ -243,18 +255,6 @@ As of March 6, 2017...
 | 6 | 2 | Horizontal Bearing  | 32767 | N | |
 | 8 | 2 | Vertical Bearing  | 32767 | N | |
 | | *9*  | **TOTAL DMX CHANNELS** | | | |
-
-### Global Master
-*Required, 1 allowed*
-
-| Channel | Size | Function | Default | Snap | Notes |
----|---|---|---|---|---
-| 1 | 1 | Global Intensity | 255 | N | Overall dimming (in IO Module if applicable) |
-| 2 | 1 | Control | 0 |**Y**|  see [Global Master Control Channel](#global-master-control-channel)  |
-| 3 | 1 | Control Selector | 0 |**Y**| Modifier for Control macros |
-| 4 | 1 | Pixel Mapping Output Level | 255 | N | Master level for pixel-mapped outputs  |
-| 5 | 1 | Global Volume | 255 | N | Master level for all audio |
-| | **5**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Output Master Base
 *Required for each output, quantity variable depending on number of outputs, minimum of 1*
@@ -401,7 +401,7 @@ As of March 6, 2017...
 | 47 | 1 | Y Spin  | 127  | N | |
 | 48 | 1 | Mix Select | 0 |**Y**| Selects which Mix the layer is assigned to |
 | 49 | 1 | Mix Mode | 0 |**Y**| see [Layer Mix Modes](#layer-mix-modes) |
-| 50 | 1 | Layer Blend Mode/Draw Mode  | 0 |**Y**| see [Blend Modes](#blend-modes) |
+| 50 | 1 | Layer Blend Mode  | 0 |**Y**| see [Blend Modes](#blend-modes) |
 | 51 | 1 | Layer Draw Mode  | 0 |**Y**| see [Draw Modes](#draw-modes) |
 | 52 | 1 | Image Remap | 0 |**Y**| Selects which Image Remapping configuration the layer uses |
 | | **52**  | **TOTAL DMX CHANNELS** | | | |
