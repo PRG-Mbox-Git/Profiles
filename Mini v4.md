@@ -261,10 +261,10 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
-| 1  | 1 | Hours | 0 | N | 0-23 > Setting value beyond its normal range will invalidate all TC DMX controls for the layer |
-| 2 | 1 | Minutes  | 0 | N | 0-59 > Setting value beyond its normal range will invalidate all TC DMX controls for the layer |
-| 3 | 1 | Seconds  | 0 | N | 0-59 > Setting value beyond its normal range will invalidate all TC DMX controls for the layer |
-| 4 | 1 | Frames  | 0 | N | 0-29 > Setting value beyond its normal range will invalidate all TC DMX controls for the layer |
+| 1  | 1 | Hours | 0 | Y | 0-23 > Setting value beyond its normal range will invalidate all TC DMX controls for the layer |
+| 2 | 1 | Minutes  | 0 | Y | 0-59 > Setting value beyond its normal range will invalidate all TC DMX controls for the layer |
+| 3 | 1 | Seconds  | 0 | Y | 0-59 > Setting value beyond its normal range will invalidate all TC DMX controls for the layer |
+| 4 | 1 | Frames  | 0 | Y | 0-29 > Setting value beyond its normal range will invalidate all TC DMX controls for the layer |
 | | **4**  | **TOTAL DMX CHANNELS** | | | |
 
 ## Pixel Mapping Group Control
