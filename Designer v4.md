@@ -1,19 +1,18 @@
-# Mbox Designer v4.1 Mapping
-As of March 6, 2017...
+# Mbox Designer v4.2 Mapping
+As of June 22, 2017...
 
 ### Notes:
 * Mbox uses default values of 127 and 32767 for some parameters, rather than 128 and 32768.  Using incorrect default values will have a severe negative impact on operation!
 * All 16-bit values are in big-endian format. For example, the value 23 would be presented as 0 in the first channel and 23 in the second channel.
 * Mbox v4 eliminates the prior idea of single, pan wide, pan dual, and dual independent output setup.  For v4 you add the number of layers desired and then add outputs as desired.  Outputs may be separate or panoramic in some combination with other layers.  Each output can have its own Output Master fixture. Two or more outputs can be linked together as panoramic outputs if desired.
 * Mbox Designer v4 has only one type of Lighting fixture, what was previously called the "Pro Light" fixture.  
-* Mbox Designer v4 has a variable number of effects per layer (1-4).  But the number of effects must be the same for every patched layer.
-* Each layer in Mbox v4 has optional Effects, Layer Volume, and Layer DMX Timecode sub-fixtures.  These fixture types are automatically included as part of the standard  quick patch. Each layer receives its own copy of each sub-fixture. Every layer receives the same quantity of each sub-fixture type.  When using a custom patch these sub-fixtures are optional.
-* The Output Master fixture includes Base functionality, plus optional Effects (2),  Camera, Geometry, Keystone, and Shutter sub-fixtures.
+* Mbox Designer v4 has 4 effects per layer.  The number of effects is the same for every patched layer.
+* Each layer in Mbox v4 has Effects, Layer Volume, and Layer DMX Timecode sub-fixtures.  These fixture types are automatically included as part of the standard  quick patch. Each layer receives its own copy of each sub-fixture. Every layer receives the same quantity of each sub-fixture type.
+* The Output Master fixture includes Base functionality, plus Effects (2), Camera, Geometry, Keystone, and Shutter sub-fixtures.
 * A standard/base configuration includes Lighting (5 Pro Lights), Global Master, six Layer controls (each with 4 effects,, volume, and timecode), and one Output Master (with all sub-fixtures).
 
 > ## Sections
 > * [**Summary - Standard Configuration (Quick Patch)**](#summary---standard-configuration-quick-patch)
-> * [**Summary - Custom Configuration (Custom Patch)**](#summary---custom-configuration-custom-patch)
 > * [**Fixture Descriptions**](#fixture-descriptions)
 >   * [Global Master](#global-master)
 >   * [Pro Light](#pro-light)
@@ -69,7 +68,7 @@ As of March 6, 2017...
 | | **143**  | **TOTAL DMX CHANNELS** |
 
 >**Notes:**
->* Additional Outputs may be added and use 93 channels each if all sub-fixtures are included.
+>* Additional Output Masters may be added and use 93 channels each if all sub-fixtures are included.
 
 >* A maximum of four (4) Output Masters will fit on the first universe.  If more than four are required, additional universes must be patched.  Output Masters 5-9 would be on the second universe, and would move the Layers up to the next consecutive universe.  Adding more Output Masters beyond 9 would move the Layers up again, and so on...
 
@@ -113,121 +112,6 @@ As of March 6, 2017...
 ---|---|---
 || *486*  | **TOTAL DMX CHANNELS** |
 
-## Summary - Custom Configuration (Custom Patch)
-
-### Masters and Light
-*Universe Offset +0*
-
-| Start  | Size  | Type  | Required/Optional |
----|---|---|---
-| 1 | 5 | Global Master | **Required** |
-| 6 | 9  | Pro Light 1 | Optional |
-| 15 | 9 | Pro Light 2 | Optional |
-| 24 | 9  | Pro Light 3 | Optional |
-| 33 | 9  | Pro Light 4 | Optional |
-| 42 | 9  | Pro Light 5 | Optional |
-| 51 | 6 | Output Master 1 | **Required** |
-| 57 | 6 | Output 1 FX 1 | Optional |
-| 63| 6 | Output 1 FX 2 | Optional |
-| 69 | 16 | Output 1 Camera | Optional |
-| 84 | 12 | Output 1 Geometry | Optional |
-| 96 | 26 | Output 1 Keystone | Optional |
-| 122 | 21 | Output 1 Shutter | Optional |
-| | **143**  | **TOTAL DMX CHANNELS** |
-
->**Notes:**
->* Additional Output Masters may be added.  Each Output Master may have different options enabled - effects, camera, geometry, keystone, shutter.
->* A maximum of four (4) Output Masters will fit on the first universe.  If more than four are required, additional universes must be patched.  Output Masters 5-9 would be on the second universe, and would move the Layers up to the next consecutive universe.  Adding more Output Masters beyond 9 would move the Layers up again, and so on...
-
-### Output Master 5-8
-*Universe Offset +1*
-
-| Start  | Size  | Type  | Required/Optional |
----|---|---|---
-| 1 | 93 | Output Master 5 |
-| 94 | 93 | Output Master 6 |
-| 187 | 93 | Output Master 7 |
-| 280 | 93 | Output Master 8 |
-
-
-### Layers 1-6
-*Universe Offset +2*
-
-*Types listed as Required must be patched for the layer to work.  Optional types can be enabled/disabled for every layer, but not on a per-layer basis.*
-
-| Start  | Size  | Type  | Required/Optional |
----|---|---|---
-| **1** | 52 | Layer 1 Base | **Required** |
-| +53 | 6 | Layer 1 FX 1 | Optional |
-| +59 | 6 | Layer 1 FX 2 | Optional |
-| +65 | 6 | Layer 1 FX 3 | Optional |
-| +71 | 6 | Layer 1 FX 4 | Optional |
-| +77 | 1 | Layer 1 Volume | Optional |
-| +78 | 4 | Layer 1 Timecode | Optional |
-| **82** | 52 | Layer 2 Base | **Required** |
-| +53 | 6 | Layer 2 FX 1 | Optional |
-| +59 | 6 | Layer 2 FX 2 | Optional |
-| +65 | 6 | Layer 2 FX 3 | Optional |
-| +71 | 6 | Layer 2 FX 4 | Optional |
-| +77 | 1 | Layer 2 Volume | Optional |
-| +78 | 4 | Layer 2 Timecode | Optional |
-| **163** | 52 | Layer 3 Base | **Required** |
-| +53 | 6 | Layer 3 FX 1 | Optional |
-| +59 | 6 | Layer 3 FX 2 | Optional |
-| +65 | 6 | Layer 3 FX 3 | Optional |
-| +71 | 6 | Layer 3 FX 4 | Optional |
-| +77 | 1 | Layer 3 Volume | Optional |
-| +78 | 4 | Layer 3 Timecode | Optional |
-| **244** | 52 | Layer 4 Base | **Required** |
-| +53 | 6 | Layer 4 FX 1 | Optional |
-| +59 | 6 | Layer 4 FX 2 | Optional |
-| +65 | 6 | Layer 4 FX 3 | Optional |
-| +71 | 6 | Layer 4 FX 4 | Optional |
-| +77 | 1 | Layer 4 Volume | Optional |
-| +78 | 4 | Layer 4 Timecode | Optional |
-| **325** | 52 | Layer 5 Base | **Required** |
-| +53 | 6 | Layer 5 FX 1 | Optional |
-| +59 | 6 | Layer 5 FX 2 | Optional |
-| +65 | 6 | Layer 5 FX 3 | Optional |
-| +71 | 6 | Layer 5 FX 4 | Optional |
-| +77 | 1 | Layer 5 Volume | Optional |
-| +78 | 4 | Layer 5 Timecode | Optional |
-| **406** | 52 | Layer 6 Base | **Required** |
-| +53 | 6 | Layer 6 FX 1 | Optional |
-| +59 | 6 | Layer 6 FX 2 | Optional |
-| +65 | 6 | Layer 6 FX 3 | Optional |
-| +71 | 6 | Layer 6 FX 4 | Optional |
-| +77 | 1 | Layer 6 Volume | Optional |
-| +78 | 4 | Layer 6 Timecode | Optional |
-| | *486*  | **TOTAL DMX CHANNELS** |
-
-### Layers 7-12
-*Universe Offset +3*
-
-*See Previous Universe*
-
-| Start  | Size  | Type  |
----|---|---
-| | **486**  | **TOTAL DMX CHANNELS** |
-
-### Layers 13-18
-*Universe Offset +4*
-
-*See Previous Universe*
-
-| Start  | Size  | Type  |
----|---|---
-| | **486**  | **TOTAL DMX CHANNELS** |
-
-### Layers 19-24
-*Universe Offset +5*
-
-*See Previous Universe*
-
-| Start  | Size  | Type  |
----|---|---
-| | **486**  | **TOTAL DMX CHANNELS** |
-
 ## Fixture Descriptions
 
 ### Global Master
@@ -243,7 +127,7 @@ As of March 6, 2017...
 | | **5**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Pro Light
-*Optional, up to 5 allowed*
+*Required, 5 allowed*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -257,7 +141,7 @@ As of March 6, 2017...
 | | *9*  | **TOTAL DMX CHANNELS** | | | |
 
 ### Output Master Base
-*Required for each output, quantity variable depending on number of outputs, minimum of 1*
+*Required for each output, quantity variable depending on number of output masters, minimum of 1*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -270,7 +154,7 @@ As of March 6, 2017...
 | | **6**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Output Master Effect
-*Optional, up to 2 per Output Master*
+*2 per Output Master*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -283,7 +167,7 @@ As of March 6, 2017...
 | | **6**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Output Master Camera
-*Optional, 1 per Output Master*
+*1 per Output Master*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -299,7 +183,7 @@ As of March 6, 2017...
 | | **16**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Output Master Geometry
-*Optional, 1 per Output Master*
+*1 per Output Master*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -312,7 +196,7 @@ As of March 6, 2017...
 | | **12**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Output Master Keystone
-*Optional, 1 per Output Master*
+*1 per Output Master*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -335,7 +219,7 @@ As of March 6, 2017...
 | | **26**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Output Master Shutter
-*Optional, 1 per Output Master*
+*1 per Output Master*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -384,8 +268,8 @@ As of March 6, 2017...
 | 20 | 1 | Texture XFade Timing  | 0 |**Y**| |
 | 21 | 1 | Object Folder  | 0 |**Y**| |
 | 22 | 1 | Object File  | 0 |**Y**|  |
-| 23 | 1 | Object XFade Type  | 0 |**Y**| see [Object Transitions](#object-transitions) |
-| 24 | 1 | Object XFade Timing  | 0 | **Y**| |
+| 23 | 1 | Reserved  | 0 | N | |
+| 24 | 1 | Reserved  | 0 | N | |
 | 25 | 2 | X Position  | 32767  | N | |
 | 27 | 2 | Y Position  | 32767  | N | |
 | 29 | 2 | Z Position  | 32767  | N | |
@@ -407,7 +291,7 @@ As of March 6, 2017...
 | | **52**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Layer FX
-*Optional, up to 4 per Layer*
+*4 per Layer*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -420,7 +304,7 @@ As of March 6, 2017...
 | | **6**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Layer Volume
-*(Optional, 1 per Layer)*
+*1 per Layer*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -428,7 +312,7 @@ As of March 6, 2017...
 | | **1**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Layer DMX Timecode
-*(Optional, 1 per Layer)*
+*1 per Layer*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -692,8 +576,8 @@ As of March 6, 2017...
 ### Combined Effects
 
 >**Notes:**
-> * The Combined Effects for Mbox Designer v4.0's Layer fixtures include all effects listed below.
-> * The Output Master fixture is only able to use Effects 1 - 200
+> * The Combined Effects for Mbox Designer v4.2's Layer fixtures include all effects listed below.
+> * The Output Master fixture is only able to use Effects 1 - 220
 > * Due to GitHub formatting scroll right for Mod.5
 
 |Value | Effect | Description | Mod.1 | Mod.2 | Mod.3 |  Mod.4 |  Mod.5 |
@@ -719,7 +603,8 @@ As of March 6, 2017...
 | 18 | Unsharp Mask | increases image detail by sharpening | intensity | radius | | | |
 | 19 | Median | reduce noise with median calculation | | | | | |
 | 20 | Black Threshold | renders black areas as true black | intensity | threshold | | | |
-| 21-31 | Reserved | n/a | | | | | |
+| 21 | Color Controls | RGB brightness and contrast | red | green | blue | brightness | contrast |
+| 22-31 | Reserved | n/a | | | | | |
 | 32 | Blur - Quick | simple/quick image blur | mixer | amount | | | |
 | 33 | Blur - QuickX | quick blur on x axis | mixer | amount | | | |
 | 34 | Blur - QuickY | quick blur on y axis | mixer | amount | | | |
@@ -742,7 +627,9 @@ As of March 6, 2017...
 | 55 | Key - XY | specific XY location color transparent | intensity | threshold | x position | y position | |
 | 56 | Key - Luma | renders bright areas transparent | intensity | threshold | | | |
 | 57 | Key - Luma Inverse | renders dark areas transparent | intensity | threshold | | | |
-| 58-63 | Reserved | n/a | | | | | |
+| 58 | Key - Chroma 2017 | alternate rgb key | amount | threshold | red | green | blue |
+| 59 | Alpha Matte | creates matte based on alpha in image | mode<sup>4</sup> | | | | |
+| 60-63 | Reserved | n/a | | | | | |
 | 64 | Crop - Circular | circular image crop with edge blur | mixer | size | edge | | |
 | 65 | Crop - Rectangular | rectangular image crop with edge blur | mixer | size | edge | | |
 | 66 | Crop - Circular XY | circ image crop with edge blur & X/Y position ctrl | mixer | size | edge | x position (127=def.) | x position (127=def.) |
@@ -766,7 +653,7 @@ As of March 6, 2017...
 | 86 | Layer Edge Blend T/B | per-layer edge blend on top and bottom sides | top amount | top edge softness | bottom amount | bottom edge softness | |
 | 87-89 | Reserved | n/a | | | | | |
 | 90 | Mask from File | creates mask using external file w/ alpha | mixer | file # | flip mode 0-7 | | |
-| 91 | Matte from Layer | creates alpha matte using selected layer | mixer | 1 - 24 = layer w/o FX, 101 - 124 = layer w/ FX | mode <sup>1</sup> | | |
+| 91 | Matte from Layer | creates alpha matte using selected layer | mixer | 1 - 24 = layer w/o FX, 101 - 124 = layer w/ FX | mode<sup>1</sup> | | |
 | 92 | UV Map from Layer | uses red/green to generate texture coordinates for uv mapping image | mode<sup>2</sup> | layer | distort amount (mode 0) | | |
 | 93-95 | Reserved | n/a | | | | | |
 | 96 | Distortion - Bump | bump distortion | radius | scale | x position | y position | |
@@ -846,12 +733,14 @@ As of March 6, 2017...
 | 187 | Shaded Material | luma in input image creates relief map | layer # | scale | | | |
 | 188 | Histogram | ? | height | high limit | low limit | | |
 | 189 | Roll - XY | horizontal and vertical roll | mixer | x amount | y amount | | |
-| 190-220 | Reserved | n/a | | | | | |
+| 190 | Pillow Blocks | egg crate effect with soft edge | mixer | multiplier | size | brightness | |
+| 191 | Triangle Kaleidoscope | kaleidoscope with triangular segments | size | rotation | decay | x position | y position |
+| 192-220 | Reserved | n/a | | | | | |
 | 221 | LRBT Shutter | mask sides of layer | left | right | bottom | top | |
 | 222 | Move Center | shift rotational center of image | X (127=def.) | Y (127=def.) | | | |
 | 223 | Shake 3D | X/Y shake effect | X | Y | | | |
 | 224 | Strobe | strobe effect | off time | on time | | | |
-| 225 | Object Tile | tiling effect | number | spacing | | | |
+| 225 | Reserved | n/a | | | | | |
 | 226 | Texture Scale/Rotation | adjusts scale & rotation of texture on gobos | scale | rotation | | | |
 | 227 | Texture X/Y Position | adjusts X/Y position of texture on gobos | X | Y | | | |
 | 228 | X/Y Pos & Scale Damping | damps movement of parameters in 1/30 sec increments | X/Y Position amount | Scale amount | | | |
@@ -894,6 +783,19 @@ As of March 6, 2017...
 > | 12 | 16 bit RG+BA HV Flip |
 >
 > 3) Plugin image (PNG or JPG) for the 176 MetaImage effect must be located in /Mbox/plugins/images/masks and must have an 8-bit index number.  File should > be 900x75 pixels, with twelve 75x75 square areas in dark to light progression left to right.
+>
+> 4) Mode info for Effect 59 = Alpha Matte
+>
+> | Value | Description |
+> ---|---
+> | 0 | White + Black |
+> | 1 | Black + White |
+> | 2 | Red + Black |
+> | 3 | Black + Red |
+> | 4 | Green  + Black |
+> | 5 | Black + Green |
+> | 6 | Blue + Black |
+> | 7 | Black + Blue |
 
 ### Transitions
 
@@ -961,22 +863,6 @@ As of March 6, 2017...
 | 101-110  | Custom Hard-edge wipe 1-10 | hard-edge wipe using custom grayscale file |
 | 111-120  | Custom Soft-edge wipe 1-10 | soft-edge wipe using custom grayscale file |
 | 255  | Object Dissolve | fade out on current object, fade in on new object |
-
-### Object Transitions
-
-|Value|  Transition  |  Description |
----|---|---
-| 0 | Dissolve  | dissolve |
-| 1  | Implode  | old object scales down to zero, then new object expands in its place |
-| 2  | X/Y-axis zoom  | object moves out/in in x/y-plane |
-| 3  | Z-axis zoom  | object moves out/in along z-axis |
-| 4  | Impact  | new object knocks old object out in x/y-plane |
-| 5  | Wheel  | objects change as if on gobo wheel |
-| 6  | Loose Wheel  | as above, but mechanically unsound |
-| 7  | Orbit  | new/old objects spin around each other |
-| 8  | Empty | n/a |
-| 9  | Newsflash 1 | objects spin in/out both in same direction |
-| 10  | Newsflash 2 | as above but objects spin in opposite directions |
 
 ### Layer Mix Modes
 
