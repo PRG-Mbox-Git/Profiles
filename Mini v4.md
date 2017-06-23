@@ -372,10 +372,11 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 0 = no frame blending (more accurately, blend time = 0)
 1 - 255 = variable frame blend time, as a proportion of the frame time. This is a square-law control, and 50 blend time is achieved at DMX 210, 25 blend time at DMX 165
 
-## Combined Effects
+### Combined Effects
+
 >**Notes:**
->* The Combined Effects for Mbox Studio v4.2's Layer fixtures include all effects listed below.
->* The Output Master fixture is only able to use Effects 1 - 220
+> * The Combined Effects for Mbox Studio v4.2's Layer fixtures include all effects listed below.
+> * The Output Master fixture is only able to use Effects 1 - 220
 > * Due to GitHub formatting scroll right for Mod.5
 
 |Value | Effect | Description | Mod.1 | Mod.2 | Mod.3 |  Mod.4 |  Mod.5 |
