@@ -1,19 +1,18 @@
-# Mbox Studio v4.1 Mapping
-As of March 6, 2017
+# Mbox Studio v4.2 Mapping
+As of June 22, 2017
 
 Notes:
 * Mbox uses default values of 127 and 32767 for some parameters, rather than 128 and 32768.  Using incorrect default values will have a severe negative impact on operation!
 * Mbox v4 eliminates the prior idea of single, pan wide, pan dual, and dual independent output setup.  For v4 you add the number of layers desired and then add outputs as desired.  Outputs may be separate or panoramic in some combination with other layers.  Each output can have its own Output Master fixture. Two or more outputs can be linked together as panoramic outputs if desired.
 * Mbox Studio v4 has only one type of Lighting fixture, what was previously called the "Pro Light" fixture in Mbox Designer v3.8 and above.  
-* Mbox Studio v4 has a variable number of effects per layer (1-2).  But the number of effects must be the same for every patched layer.
-* Each layer in Mbox v4 has optional Effects, Layer Volume, and Layer DMX Timecode sub-fixtures.  These fixture types are automatically included as part of the standard  quick patch. Each layer receives its own copy of each sub-fixture. Every layer receives the same quantity of each sub-fixture type.  When using the advanced patch these sub-fixtures are optional.
-* The Output Master fixture includes Base functionality, plus optional Camera, Effect (1), Shutter, and Keystone sub-fixtures.
+* Mbox Studio v4 has 2 effects per layer.  The number of effects must be the same for every patched layer.
+* Each layer in Mbox v4 has Effects, Layer Volume, and Layer DMX Timecode sub-fixtures.  These fixture types are automatically included as part of the standard quick patch. Each layer receives its own copy of each sub-fixture. Every layer receives the same quantity of each sub-fixture type.
+* The Output Master fixture includes Base functionality, plus Camera, Effect (1), Shutter, and Keystone sub-fixtures.
 * A standard/base configuration includes Lighting (5 Pro Lights), Global Master, eight Layer controls (each with 2 effects, volume, and timecode), and one Output Master (with all sub-fixtures).
 * All 16-bit values are in big-endian format. For example, the value 23 would be presented as 0 in the first channel and 23 in the second channel.
 
 > ## Sections
 > * [**Summary - Standard Configuration (Quick Patch)**](#summary---standard-configuration-quick-patch)
-> * [**Summary - Custom Configuration (Custom Patch)**](#summary---custom-configuration-custom-patch)
 > * [**Fixture Descriptions**](#fixture-descriptions)
 >   * [Global Master](#global-master)
 >   * [Pro Light](#pro-light)
@@ -92,88 +91,6 @@ Notes:
 ---|---|---
 | | **232**  | **TOTAL DMX CHANNELS** |
 
-## Summary - Custom Configuration (Custom Patch)
-
-### Masters and Lights
-*Universe Offset +0*
-
-| Start  | Size  | Type  | Required/Optional |
----|---|---|---
-| 1 | 5 | Global Master | **Required** |
-| 6 | 9  | Pro Light 1 | Optional |
-| 15 | 9 | Pro Light 2 | Optional |
-| 24 | 9  | Pro Light 3 | Optional |
-| 33 | 9  | Pro Light 4 | Optional |
-| 42 | 9  | Pro Light 5 | Optional |
-| 51 | 6 | Output Master 1 | **Required** |
-| 57 | 6 | Output 1 FX 1 | Optional |
-| 63 | 12 | Output 1 Geometry |
-| 75 | 26 | Output 1 Keystone | Optional |
-| 101 | 13 | Output 1 Shutter | Optional |
-| | **114**  | **TOTAL DMX CHANNELS** |
-
-> **Notes:**
-> * Additional Output Masters may be added.  Each Output Master may have different options  enabled - effect, keystone, shutter.
-> * A maximum of seven (7) Output Masters will fit on the first universe.  If more than seven are required, additional universes must be patched.  Output Master 8 would be on the second universe, and would move the Layers up to the next consecutive universe (i.e. the third universe).
-
-### Layers 1-8
-*Universe Offset +1*
-
-*Types listed as Required must be patched for the layer to work.  Optional types can be enabled/disabled for every layer, but not on a per-layer basis.*
-
-| Start  | Size  | Type  | Required/Optional |
----|---|---|---
-| **1** | 41 | Layer 1 Base | **Required** |
-| +42 | 6 | Layer 1 FX 1 | Optional |
-| +48 | 6 | Layer 1 FX 2 | Optional |
-| +54 | 1 | Layer 1 Volume | Optional |
-| +55 | 4 | Layer 1 Timecode | Optional |
-| **59** | 41 | Layer 2 Base | **Required** |
-| +42 | 6 | Layer 2 FX 1 | Optional |
-| +48 | 6 | Layer 2 FX 2 | Optional |
-| +54 | 1 | Layer 2 Volume | Optional |
-| +55 | 4 | Layer 2 Timecode | Optional |
-| **117** | 41 | Layer 3 Base | **Required** |
-| +42 | 6 | Layer 3 FX 1 | Optional |
-| +48 | 6 | Layer 3 FX 2 | Optional |
-| +54 | 1 | Layer 3 Volume | Optional |
-| +55 | 4 | Layer 3 Timecode | Optional |
-| **175** | 41 | Layer 4 Base | **Required** |
-| +42 | 6 | Layer 4 FX 1 | Optional |
-| +48 | 6 | Layer 4 FX 2 | Optional |
-| +54 | 1 | Layer 4 Volume | Optional |
-| +55 | 4 | Layer 4 Timecode | Optional |
-| **233** | 41 | Layer 5 Base | **Required** |
-| +42 | 6 | Layer 5 FX 1 | Optional |
-| +48 | 6 | Layer 5 FX 2 | Optional |
-| +54 | 1 | Layer 5 Volume | Optional |
-| +55 | 4 | Layer 5 Timecode | Optional |
-| **291** | 41 | Layer 6 Base | **Required** |
-| +42 | 6 | Layer 6 FX 1 | Optional |
-| +48 | 6 | Layer 6 FX 2 | Optional |
-| +54 | 1 | Layer 6 Volume | Optional |
-| +55 | 4 | Layer 6 Timecode | Optional |
-| **349** | 41 | Layer 7 Base | **Required** |
-| +42 | 6 | Layer 7 FX 1 | Optional |
-| +48 | 6 | Layer 7 FX 2 | Optional |
-| +54 | 1 | Layer 7 Volume | Optional |
-| +55 | 4 | Layer 7 Timecode | Optional |
-| **407** | 41 | Layer 8 Base | **Required** |
-| +42 | 6 | Layer 8 FX 1 | Optional |
-| +48 | 6 | Layer 8 FX 2 | Optional |
-| +54 | 1 | Layer 8 Volume | Optional |
-| +55 | 4 | Layer 8 Timecode | Optional |
-| | *464*  | **TOTAL DMX CHANNELS** |
-
-### Layers 9-12
-*Universe Offset +2*
-
-*See Previous Universe*
-
-| Start  | Size  | Type  |
----|---|---
-| | **232**  | **TOTAL DMX CHANNELS** |
-
 ## Fixture Descriptions
 
 ### Global Master
@@ -189,7 +106,7 @@ Notes:
 | | **5**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Pro Light
-*Optional, up to 5 allowed*
+*Required, 5 allowed*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -216,7 +133,7 @@ Notes:
 | | **6**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Output Master Effect
-*Optional, 1 per Output Master*
+*1 per Output Master*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -229,7 +146,7 @@ Notes:
 | | **6**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Output Master Geometry
-*Optional, 1 per Output Master*
+*1 per Output Master*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -242,7 +159,7 @@ Notes:
 | | **12**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Output Master Keystone
-*Optional, 1 per Output Master*
+*1 per Output Master*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -265,7 +182,7 @@ Notes:
 | | **26**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Output Master Shutter
-*Optional, 1 per Output Master*
+*1 per Output Master*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -323,7 +240,7 @@ Notes:
 | | **41**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Layer FX
-*Optional, up to 2 per Layer*
+*2 per Layer*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -336,7 +253,7 @@ Notes:
 | | **6**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Layer Volume
-*(Optional, 1 per Layer)*
+*1 per Layer*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -344,7 +261,7 @@ Notes:
 | | **1**  | **TOTAL DMX CHANNELS** | | | |
 
 ### Layer DMX Timecode
-*(Optional, 1 per Layer)*
+*1 per Layer*
 
 | Channel | Size | Function | Default | Snap | Notes |
 ---|---|---|---|---|---
@@ -560,11 +477,11 @@ Notes:
 ### Combined Effects
 
 >**Notes:**
->* The Combined Effects for Mbox Studio v4.0's Layer fixtures include all effects listed below.
->* The Output Master fixture is only able to use Effects 1 - 200
+> * The Combined Effects for Mbox Studio v4.2's Layer fixtures include all effects listed below.
+> * The Output Master fixture is only able to use Effects 1 - 220
 > * Due to GitHub formatting scroll right for Mod.5
 
-|Value | Effect | Description | Mod.1 | Mod.2 | Modi.3 |  Mod.4 |  Mod.5 |
+|Value | Effect | Description | Mod.1 | Mod.2 | Mod.3 |  Mod.4 |  Mod.5 |
 ---|---|---|---|---|---|---|---
 | 0 | NONE | no effect  | | | | | |
 | 1 | Hue | hue adjustment | hue angle | | | | |
@@ -587,7 +504,8 @@ Notes:
 | 18 | Unsharp Mask | increases image detail by sharpening | intensity | radius | | | |
 | 19 | Median | reduce noise with median calculation | | | | | |
 | 20 | Black Threshold | renders black areas as true black | intensity | threshold | | | |
-| 21-31 | Reserved | n/a | | | | | |
+| 21 | Color Controls | RGB brightness and contrast | red | green | blue | brightness | contrast |
+| 22-31 | Reserved | n/a | | | | | |
 | 32 | Blur - Quick | simple/quick image blur | mixer | amount | | | |
 | 33 | Blur - QuickX | quick blur on x axis | mixer | amount | | | |
 | 34 | Blur - QuickY | quick blur on y axis | mixer | amount | | | |
@@ -610,7 +528,9 @@ Notes:
 | 55 | Key - XY | specific XY location color transparent | intensity | threshold | x position | y position | |
 | 56 | Key - Luma | renders bright areas transparent | intensity | threshold | | | |
 | 57 | Key - Luma Inverse | renders dark areas transparent | intensity | threshold | | | |
-| 58-63 | Reserved | n/a | | | | | |
+| 58 | Key - Chroma 2017 | alternate rgb key | amount | threshold | red | green | blue |
+| 59 | Alpha Matte | creates matte based on alpha in image | mode<sup>4</sup> | | | | |
+| 60-63 | Reserved | n/a | | | | | |
 | 64 | Crop - Circular | circular image crop with edge blur | mixer | size | edge | | |
 | 65 | Crop - Rectangular | rectangular image crop with edge blur | mixer | size | edge | | |
 | 66 | Crop - Circular XY | circ image crop with edge blur & X/Y position ctrl | mixer | size | edge | x position (127=def.) | x position (127=def.) |
@@ -634,7 +554,7 @@ Notes:
 | 86 | Layer Edge Blend T/B | per-layer edge blend on top and bottom sides | top amount | top edge softness | bottom amount | bottom edge softness | |
 | 87-89 | Reserved | n/a | | | | | |
 | 90 | Mask from File | creates mask using external file w/ alpha | mixer | file # | flip mode 0-7 | | |
-| 91 | Matte from Layer | creates alpha matte using selected layer | mixer | 1 - 24 = layer w/o FX, 101 - 124 = layer w/ FX | mode <sup>1</sup> | | |
+| 91 | Matte from Layer | creates alpha matte using selected layer | mixer | 1 - 24 = layer w/o FX, 101 - 124 = layer w/ FX | mode<sup>1</sup> | | |
 | 92 | UV Map from Layer | uses red/green to generate texture coordinates for uv mapping image | mode<sup>2</sup> | layer | distort amount (mode 0) | | |
 | 93-95 | Reserved | n/a | | | | | |
 | 96 | Distortion - Bump | bump distortion | radius | scale | x position | y position | |
@@ -714,12 +634,14 @@ Notes:
 | 187 | Shaded Material | luma in input image creates relief map | layer # | scale | | | |
 | 188 | Histogram | ? | height | high limit | low limit | | |
 | 189 | Roll - XY | horizontal and vertical roll | mixer | x amount | y amount | | |
-| 190-220 | Reserved | n/a | | | | | |
+| 190 | Pillow Blocks | egg crate effect with soft edge | mixer | multiplier | size | brightness | |
+| 191 | Triangle Kaleidoscope | kaleidoscope with triangular segments | size | rotation | decay | x position | y position |
+| 192-220 | Reserved | n/a | | | | | |
 | 221 | LRBT Shutter | mask sides of layer | left | right | bottom | top | |
 | 222 | Move Center | shift rotational center of image | X (127=def.) | Y (127=def.) | | | |
 | 223 | Shake 3D | X/Y shake effect | X | Y | | | |
 | 224 | Strobe | strobe effect | off time | on time | | | |
-| 225 | Object Tile | tiling effect | number | spacing | | | |
+| 225 | Reserved | n/a | | | | | |
 | 226 | Texture Scale/Rotation | adjusts scale & rotation of texture on gobos | scale | rotation | | | |
 | 227 | Texture X/Y Position | adjusts X/Y position of texture on gobos | X | Y | | | |
 | 228 | X/Y Pos & Scale Damping | damps movement of parameters in 1/30 sec increments | X/Y Position amount | Scale amount | | | |
@@ -762,6 +684,20 @@ Notes:
 > | 12 | 16 bit RG+BA HV Flip |
 >
 > 3) Plugin image (PNG or JPG) for the 176 MetaImage effect must be located in /Mbox/plugins/images/masks and must have an 8-bit index number.  File should > be 900x75 pixels, with twelve 75x75 square areas in dark to light progression left to right.
+>
+> 4) Mode info for Effect 59 = Alpha Matte
+>
+> | Value | Description |
+> ---|---
+> | 0 | White + Black |
+> | 1 | Black + White |
+> | 2 | Red + Black |
+> | 3 | Black + Red |
+> | 4 | Green + Black |
+> | 5 | Black + Green |
+> | 6 | Blue + Black |
+> | 7 | Black + Blue |
+
 ### Transitions
 
 |Value| Transition |  Description |
