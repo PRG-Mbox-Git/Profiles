@@ -375,7 +375,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 ### Combined Effects
 
 >**Notes:**
-> * The Combined Effects for Mbox Studio v4.2's Layer fixtures include all effects listed below.
+> * The Combined Effects for Mbox Mini v4.2's Layer fixtures include all effects listed below.
 > * The Output Master fixture is only able to use Effects 1 - 220
 > * Due to GitHub formatting scroll right for Mod.5
 
@@ -591,7 +591,7 @@ Warning: The maximum number of Output Masters, six (6), will fit on the first un
 > | 1 | Black + White |
 > | 2 | Red + Black |
 > | 3 | Black + Red |
-> | 4 | Green  + Black |
+> | 4 | Green + Black |
 > | 5 | Black + Green |
 > | 6 | Blue + Black |
 > | 7 | Black + Blue |
