@@ -38,7 +38,6 @@ As of June 22, 2017...
 >   * [Frame Blending Control](#frame-blending-control)
 >   * [Combined Effects](#combined-effects)
 >   * [Transitions](#transitions)
->   * [Object Transitions](#object-transitions)
 >   * [Layer Mix Modes](#layer-mix-modes)
 >   * [Blend Modes](#blend-modes)
 >   * [Draw Modes](#draw-modes)
