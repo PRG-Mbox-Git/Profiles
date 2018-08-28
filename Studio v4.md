@@ -2,6 +2,7 @@
 As of August 28, 2018
 
 Notes:
+* This profile also covers the Studio+ (starting with v4.3) version of the product
 * Mbox uses default values of 127 and 32767 for some parameters, rather than 128 and 32768.  Using incorrect default values will have a severe negative impact on operation!
 * Mbox v4 eliminates the prior idea of single, pan wide, pan dual, and dual independent output setup.  For v4 you add the number of layers desired and then add outputs as desired.  Outputs may be separate or panoramic in some combination with other layers.  Each output can have its own Output Master fixture. Two or more outputs can be linked together as panoramic outputs if desired.
 * Mbox Studio v4 has only one type of Lighting fixture, what was previously called the "Pro Light" fixture in Mbox Designer v3.8 and above.  
