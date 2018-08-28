@@ -1,5 +1,5 @@
-# Mbox Designer v4.2 Mapping
-As of June 22, 2017...
+# Mbox Designer v4.3 Mapping
+As of August 28, 2018...
 
 ### Notes:
 * Mbox uses default values of 127 and 32767 for some parameters, rather than 128 and 32768.  Using incorrect default values will have a severe negative impact on operation!
@@ -391,7 +391,6 @@ As of June 22, 2017...
 | 10-19  | Moving Light Mode | Separate controls for each end of shutter. If both controls are zero shutter disappears |
 | 20-29  | Leko Mode | Distance and angle controls. If distance is zero, shutter disappears. |
 | 30-39  | Iris Mode | A round Iris, scale is magnified to enclose the screen. No other controls. |
-| 40-49  | "Blob" Mode | A Bezier curve is drawn touching the midpoints of the rectangle formed by Leko Mode. |
 
 ### Keystone Blend Curves
 
@@ -466,6 +465,18 @@ As of June 22, 2017...
 | 52 | Copy Layer 22 raw |
 | 53 | Copy Layer 23 raw |
 | 54 | Copy Layer 24 raw |
+| 101 | NDI Input 1 |
+| 102 | NDI Input 2 |
+| 103 | NDI Input 3 |
+| 104 | NDI Input 4 |
+| 105 | NDI Input 5 |
+| 106 | NDI Input 6 |
+| 107 | NDI Input 7 |
+| 108 | NDI Input 8 |
+| 109 | NDI Input 9 |
+| 110 | NDI Input 10 |
+| 111 | NDI Input 11 |
+| 112 | NDI Input 12 |
 | 201 | Syphon Input 1 |
 | 202 | Syphon Input 2 |
 | 203 | Syphon Input 3 |
@@ -547,8 +558,7 @@ As of June 22, 2017...
 | 0  | Paused |
 | 1-126  | Increasing speeds from paused to normal |
 | 127  | Normal Speed - movie fps |
-| 128  | Compensated speed - match output refresh rate (with +/- ~5% deviation) |
-| 129-255  | Increasing speeds from normal to 4x normal |
+| 128-255  | Increasing speeds from normal to 4x normal |
 
 ### Sync Stream
 
@@ -570,7 +580,9 @@ As of June 22, 2017...
 ### Frame Blending Control
 
 0 = no frame blending (more accurately, blend time = 0)
-1 - 255 = variable frame blend time, as a proportion of the frame time. This is a square-law control, and 50 blend time is achieved at DMX 210, 25 blend time at DMX 165
+1 - 255 = variable frame blend time, as a proportion of the frame time. This is a square-law control, and 50 percent blend time is achieved at DMX 210, 25 percent blend time at DMX 165
+
+_Mbox v4.3 adds enhanced frame blending that works automatically for content with a playspeed <> 10 percent of nominal.  The enhanced blending can also be enabled through a preference for content with a framerate >5 percent different from nominal, and can be forced on for any framerate with a Frame Blending parameter value of 254._
 
 ### Combined Effects
 
@@ -603,7 +615,9 @@ As of June 22, 2017...
 | 19 | Median | reduce noise with median calculation | | | | | |
 | 20 | Black Threshold | renders black areas as true black | intensity | threshold | | | |
 | 21 | Color Controls | RGB brightness and contrast | red | green | blue | brightness | contrast |
-| 22-31 | Reserved | n/a | | | | | |
+| 22 | Gradient | RGB brightness and contrast | beginning | end | red | green | blue |
+| 23 | Cube LUT | RGB brightness and contrast | file # | | | | |
+| 24-31 | Reserved | n/a | | | | | |
 | 32 | Blur - Quick | simple/quick image blur | mixer | amount | | | |
 | 33 | Blur - QuickX | quick blur on x axis | mixer | amount | | | |
 | 34 | Blur - QuickY | quick blur on y axis | mixer | amount | | | |
@@ -637,17 +651,18 @@ As of June 22, 2017...
 | 69 | Crop - Horizontal | horizontal 90° shutters | mixer | width | center (127=def.) | | |
 | 70 | Crop - Vertical | vertical 90° shutters | mixer | height | center (127=def.) | | |
 | 71 | Crop - Orth Shutter | horizontal & vertical 90° shutters | mixer | H insertion | V insertion | | |
-| 72 | Crop - Slitscan Horizontal | horizontal 90° shutters | mixer | width | center (127=def.) | | |
-| 73 | Crop - Slitscan Vertical | vertical 90° shutters | mixer | height | center (127=def.) | | |
-| 74 | Crop - Slitscan Horizontal Swing | horizontal shutters with motion | mixer | width | scanrate | swing | |
-| 75 | Crop - Slitscan Vertical Swing | vertical shutters with motion | mixer | height | scanrate | swing | |
-| 76 | Crop - Slitscan Horizontal Random Swing | horizontal shutters with random motion | mixer | width | scanrate | swing | |
-| 77 | Crop - Slitscan Vertical Random Swing | vertical shutters with random motion | mixer | height | scanrate | swing | |
-| 78-80 | Reserved | n/a | | | | | |
-| 81 | Layer Edge Blend Right | per-layer edge blend on right side | amount | edge softness | | | |
-| 82 | Layer Edge Blend Left | per-layer edge blend on left side | amount | edge softness | | | |
-| 83 | Layer Edge Blend Top | per-layer edge blend on top side | amount | edge softness | | | |
-| 84 | Layer Edge Blend Bottom | per-layer edge blend on bottom side | amount | edge softness | | | |
+| 72 | Crop - Slitscan Horizontal | horizontal 90° shutters | mixer | width | position (127=def.) | softness | |
+| 73 | Crop - Slitscan Vertical | vertical 90° shutters | mixer | height | position (127=def.) | softness | |
+| 74 | Crop - Slitscan Horizontal Swing | horizontal shutters with motion | mixer | width | scanrate | swing | softness |
+| 75 | Crop - Slitscan Vertical Swing | vertical shutters with motion | mixer | height | scanrate | swing | softness |
+| 76 | Crop - Slitscan Horizontal Random Swing | horizontal shutters with random motion | mixer | width | scanrate | swing | softness |
+| 77 | Crop - Slitscan Vertical Random Swing | horizontal shutters with random motion | mixer | height | scanrate | swing | softness |
+| 78 | Crop - Softedge LRTB | horizontal & vertical 90° shutters w/ softedge | edge | left | right | top | bottom |
+| 79-80 | Reserved | n/a | | | | | |
+| 81 | Layer Edge Blend Right | per-layer edge blend on right side | amount | edge softness | angle | | |
+| 82 | Layer Edge Blend Left | per-layer edge blend on left side | amount | edge softness | angle | | |
+| 83 | Layer Edge Blend Top | per-layer edge blend on top side | amount | edge softness | angle | | |
+| 84 | Layer Edge Blend Bottom | per-layer edge blend on bottom side | amount | edge softness | angle | | |
 | 85 | Layer Edge Blend L/R | per-layer edge blend on left and right sides | left amount | left edge softness | right amount | right edge softness | |
 | 86 | Layer Edge Blend T/B | per-layer edge blend on top and bottom sides | top amount | top edge softness | bottom amount | bottom edge softness | |
 | 87-89 | Reserved | n/a | | | | | |
@@ -671,8 +686,8 @@ As of June 22, 2017...
 | 113 | Smear - Horizontal | spread single column over horizontal space | mixer | column | | | |
 | 114 | Smear - Vertical | spread single row over vertical space | mixer | row | | | |
 | 115-117 | Reserved | n/a | | | | | |
-| 118 | Pixellate - Square | pixellates image, square | scale | x position | y position | | |
-| 119 | Pixellate - Hexagonal | pixellates image, hexagonal | scale | x position | y position | | |
+| 118 | Pixelate - Square | pixelates image, square | scale | x position | y position | | |
+| 119 | Pixelate - Hexagonal | pixelates image, hexagonal | scale | x position | y position | | |
 | 120 | Crystallize | break up into crystal pattern | radius | x position | y position | | |
 | 121 | Pointillize | break image into points | radius | x position | y position | | |
 | 122-126 | Reserved | n/a | | | | | |
@@ -734,7 +749,10 @@ As of June 22, 2017...
 | 189 | Roll - XY | horizontal and vertical roll | mixer | x amount | y amount | | |
 | 190 | Pillow Blocks | egg crate effect with soft edge | mixer | multiplier | size | brightness | |
 | 191 | Triangle Kaleidoscope | kaleidoscope with triangular segments | size | rotation | decay | x position | y position |
-| 192-220 | Reserved | n/a | | | | | |
+| 192 | Chromatic Aberration | distortion w/ color separation | mixer | samples | vignette | blur | |
+| 193 | MetaImage 2 | metaimage using content on layer | mixer | scale | colormix | | |
+| 194 | Cartoon 2 | revised cartoon effect | mixer | line width | color reduction | bright reduction | smoothing |
+| 195-220 | Reserved | n/a | | | | | |
 | 221 | LRBT Shutter | mask sides of layer | left | right | bottom | top | |
 | 222 | Move Center | shift rotational center of image | X (127=def.) | Y (127=def.) | | | |
 | 223 | Shake 3D | X/Y shake effect | X | Y | | | |
@@ -859,8 +877,13 @@ As of June 22, 2017...
 | 56  | Bar Swipe Down | old image slides downward in strips |
 | 57  | Page Curl 1 | page corner curls from bottom-right to top-left |
 | 58  | Page Curl 2 | page corner curls from top-right to bottom-left |
+| 59  | Dissolve with Pixels | pixelation followed by dissolve |
+| 60  | Circular Wipe CW | wipe around center in CW direction |
+| 61  | Circular Wipe CCW | wipe around center in CCW direction |
 | 101-110  | Custom Hard-edge wipe 1-10 | hard-edge wipe using custom grayscale file |
 | 111-120  | Custom Soft-edge wipe 1-10 | soft-edge wipe using custom grayscale file |
+| 121-144  | From Layer 1-24 Dark First | dissolve dark areas first using other layer's luma matte |
+| 151-174  | From Layer 1-24 Light First | dissolve light areas first using other layer's luma matte |
 | 255  | Object Dissolve | fade out on current object, fade in on new object |
 
 ### Layer Mix Modes
