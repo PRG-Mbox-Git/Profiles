@@ -486,7 +486,7 @@ _Mbox v4.3 adds enhanced frame blending that works automatically for content wit
 ### Combined Effects
 
 >**Notes:**
-> * The Combined Effects for Mbox Studio v4.2's Layer fixtures include all effects listed below.
+> * The Combined Effects for Mbox Studio v4.3's Layer fixtures include all effects listed below.
 > * The Output Master fixture is only able to use Effects 1 - 220
 > * Due to GitHub formatting scroll right for Mod.5
 
